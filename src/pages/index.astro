@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
 ---
 <BaseLayout title="Mishti Broor — Bioelectronics & Neural Sensing">
   <section class="hero">
@@ -8,8 +9,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h1>Building better interfaces to biological signals.</h1>
       <p class="lead">I’m a Biomedical Engineering M.S. student at Northwestern University working across EEG hardware, wearable sensing, human-subject research, and biosignal analysis — with a growing focus on bioelectronics and neural interfaces.</p>
       <div class="hero-actions">
-        <a class="button primary" href="/projects">View projects →</a>
-        <a class="button" href="/docs/mishti-broor-resume.pdf" target="_blank">Résumé ↗</a>
+        <a class="button primary" href={`${base}projects`}>View projects →</a>
+        <a class="button" href={`${base}docs/mishti-broor-resume.pdf`} target="_blank">Résumé ↗</a>
         <a class="button" href="https://www.linkedin.com/in/mishti-broor" target="_blank" rel="noreferrer">LinkedIn ↗</a>
       </div>
     </div>
@@ -22,29 +23,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <p>Engineering projects that connect sensing hardware, experimental validation, and real-world human use.</p>
       </div>
       <div class="grid">
-        <a class="card feature-card image-card span-7" href="/projects/inclusive-eeg-electrodes">
+        <a class="card feature-card image-card span-7" href={`${base}projects/inclusive-eeg-electrodes`}>
           <div>
             <div class="eyebrow">Featured · EEG hardware</div>
             <h3>Inclusive EEG electrode hardware</h3>
             <p>Engineered and validated novel EEG electrode attachments for unbraided and cornrowed hair, from CAD and resin 3D printing through a 30-participant study.</p>
             <div class="meta"><span class="tag">CAD</span><span class="tag">3D printing</span><span class="tag">EEG</span><span class="tag">Human studies</span><span class="tag">Signal quality</span></div>
           </div>
-          <img src="/images/eeg-poster-solo.jpeg" alt="Mishti Broor presenting her EEG electrode research poster" />
+          <img src={`${base}images/eeg-poster-solo.jpeg`} alt="Mishti Broor presenting her EEG electrode research poster" />
         </a>
 
-        <a class="card feature-card image-card span-5" href="/projects/spinal-cord-model">
+        <a class="card feature-card image-card span-5" href={`${base}projects/spinal-cord-model`}>
           <div>
             <div class="eyebrow">Medical device design</div>
             <h3>High-fidelity spinal cord model</h3>
             <p>Designed an anatomically detailed in-vitro model of the spinal subarachnoid space for cerebrospinal-fluid flow studies.</p>
             <div class="meta"><span class="tag">Fusion 360</span><span class="tag">MSLA printing</span><span class="tag">Silicone</span><span class="tag">1st place BME</span></div>
           </div>
-          <img src="/images/spinal-cord-expo.jpeg" alt="Mishti Broor presenting the spinal cord model at the UIC Engineering Expo" />
+          <img src={`${base}images/spinal-cord-expo.jpeg`} alt="Mishti Broor presenting the spinal cord model at the UIC Engineering Expo" />
         </a>
 
-        <a class="card span-4" href="/research"><h3>Clinical EEG research</h3><p>M.S. thesis work at Northwestern focused on clinical electrophysiology and quantitative EEG.</p><span class="arrow">↗</span></a>
-        <a class="card span-4" href="/bioelectronics"><h3>Bioelectronics direction</h3><p>Electrodes, analog front ends, wearable sensing, embedded systems, and neural interfaces.</p><span class="arrow">↗</span></a>
-        <a class="card span-4" href="/writing"><h3>Technical writing</h3><p>Analysis of emerging neurotechnology, wearable biosensing, BCI products, and translational devices.</p><span class="arrow">↗</span></a>
+        <a class="card span-4" href={`${base}research`}><h3>Clinical EEG research</h3><p>M.S. thesis work at Northwestern focused on clinical electrophysiology and quantitative EEG.</p><span class="arrow">↗</span></a>
+        <a class="card span-4" href={`${base}bioelectronics`}><h3>Bioelectronics direction</h3><p>Electrodes, analog front ends, wearable sensing, embedded systems, and neural interfaces.</p><span class="arrow">↗</span></a>
+        <a class="card span-4" href={`${base}writing`}><h3>Technical writing</h3><p>Analysis of emerging neurotechnology, wearable biosensing, BCI products, and translational devices.</p><span class="arrow">↗</span></a>
       </div>
     </div>
   </section>
