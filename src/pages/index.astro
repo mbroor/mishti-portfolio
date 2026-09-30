@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const base = '/mishti-portfolio/';
+const img = 'https://raw.githubusercontent.com/mbroor/mishti-portfolio/main/public/images/';
 ---
 <BaseLayout title="Mishti Broor — Bioelectronics & Neural Sensing">
   <section class="hero">
@@ -30,7 +31,7 @@ const base = '/mishti-portfolio/';
             <p>Engineered and validated novel EEG electrode attachments for unbraided and cornrowed hair, from CAD and resin 3D printing through a 30-participant study.</p>
             <div class="meta"><span class="tag">CAD</span><span class="tag">3D printing</span><span class="tag">EEG</span><span class="tag">Human studies</span><span class="tag">Signal quality</span></div>
           </div>
-          <img src={`${base}images/eeg-poster-solo.jpeg`} alt="Mishti Broor presenting her EEG electrode research poster" />
+          <img src={`${img}eeg-poster-solo.jpeg`} alt="Mishti Broor presenting her EEG electrode research poster" />
         </a>
 
         <a class="card feature-card image-card span-5" href={`${base}projects/spinal-cord-model`}>
@@ -40,7 +41,7 @@ const base = '/mishti-portfolio/';
             <p>Designed an anatomically detailed in-vitro model of the spinal subarachnoid space for cerebrospinal-fluid flow studies.</p>
             <div class="meta"><span class="tag">Fusion 360</span><span class="tag">MSLA printing</span><span class="tag">Silicone</span><span class="tag">1st place BME</span></div>
           </div>
-          <img src={`${base}images/spinal-cord-expo.jpeg`} alt="Mishti Broor presenting the spinal cord model at the UIC Engineering Expo" />
+          <img src={`${img}spinal-cord-expo.jpeg`} alt="Mishti Broor presenting the spinal cord model at the UIC Engineering Expo" />
         </a>
 
         <a class="card span-4" href={`${base}research`}><h3>Clinical EEG research</h3><p>M.S. thesis work at Northwestern focused on clinical electrophysiology and quantitative EEG.</p><span class="arrow">↗</span></a>
