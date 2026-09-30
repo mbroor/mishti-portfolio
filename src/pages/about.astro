@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
 ---
 <BaseLayout title="About — Mishti Broor">
   <section class="page-hero"><div class="container"><div class="eyebrow">About</div><h1>Biomedical engineer building toward bioelectronics and neural sensing.</h1><p>I’m pursuing an M.S. in Biomedical Engineering at Northwestern University after completing my B.S. in BME at UIC. My work spans EEG hardware, biosignal analysis, rapid prototyping, human-subject studies, and technical communication.</p></div></section>
@@ -17,6 +18,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <h2>Outside the lab</h2>
     <p>I write about emerging neurotechnology and wearable health technologies, particularly how technical ideas move from research prototypes into products people can actually use.</p>
 
-    <div class="hero-actions"><a class="button primary" href="/docs/mishti-broor-resume.pdf" target="_blank">View résumé ↗</a><a class="button" href="https://www.linkedin.com/in/mishti-broor" target="_blank" rel="noreferrer">LinkedIn ↗</a><a class="button" href="mailto:mishtibroor2028@u.northwestern.edu">Email</a></div>
+    <div class="hero-actions"><a class="button primary" href={`${base}docs/mishti-broor-resume.pdf`} target="_blank">View résumé ↗</a><a class="button" href="https://www.linkedin.com/in/mishti-broor" target="_blank" rel="noreferrer">LinkedIn ↗</a><a class="button" href="mailto:mishtibroor2028@u.northwestern.edu">Email</a></div>
   </div></section>
 </BaseLayout>
