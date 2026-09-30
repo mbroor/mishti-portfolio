@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
 ---
 <BaseLayout title="Research — Mishti Broor">
   <section class="page-hero"><div class="container"><div class="eyebrow">Research</div><h1>Neural signals, human studies, and translation.</h1><p>Research experience spanning EEG hardware, multimodal experiments, clinical electrophysiology, signal processing, and device-focused validation.</p></div></section>
@@ -11,5 +12,5 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="list-row"><div class="date">Jun — Aug 2025</div><div><h3>NIH-funded Clinical Immersion</h3><p>Ophthalmology immersion focused on workflow observation, unmet clinical needs, patient-device interaction, and translation opportunities.</p></div><div>UIC</div></div>
     </div>
   </div></section>
-  <section class="section project-media"><div class="container"><img class="hero-image" src="/images/eeg-poster-team.jpeg" alt="Mishti Broor presenting EEG research with a collaborator" /></div></section>
+  <section class="section project-media"><div class="container"><img class="hero-image" src={`${base}images/eeg-poster-team.jpeg`} alt="Mishti Broor presenting EEG research with a collaborator" /></div></section>
 </BaseLayout>
