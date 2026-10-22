@@ -1,16 +1,64 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const originalPortfolio = 'https://drive.google.com/file/d/1yP8CbWOcifkhbyJ6ONhZg9As0Ja9l22e/view';
-const preview = 'https://drive.google.com/file/d/1yP8CbWOcifkhbyJ6ONhZg9As0Ja9l22e/preview';
+const base = '/mishti-portfolio/';
+const art = Array.from({ length: 22 }, (_, index) => ({
+  number: index + 1,
+  image: `${base}images/artwork/page-${String(index + 1).padStart(2, '0')}.jpg`,
+}));
+const source = 'https://drive.google.com/file/d/1yP8CbWOcifkhbyJ6ONhZg9As0Ja9l22e/view';
 ---
-<BaseLayout title="Artwork — Mishti Broor" description="A selection of drawings and artwork by Mishti Broor.">
-  <section class="page-hero"><div class="container"><div class="eyebrow">Outside the lab / Art</div><h1>A different kind of making.</h1><p>I enjoy making things outside engineering, too. Here's a collection of my drawings and artwork.</p></div></section>
-  <section class="section"><div class="container">
-    <div class="artwork-viewer">
-      <div class="artwork-viewer-header"><span>Selected artwork / 22-page portfolio</span><a href={originalPortfolio} target="_blank" rel="noopener noreferrer">View original PDF ↗</a></div>
-      <iframe title="Mishti Broor artwork portfolio" src={preview} loading="lazy" allow="fullscreen"></iframe>
-    </div>
-    <p class="artwork-note">The artwork is presented from my original portfolio. If the embedded viewer isn't available in your browser, use the PDF link above.</p>
-    <div class="hero-actions"><a class="button" href="https://sites.google.com/view/mishti-broor/my-artwork" target="_blank" rel="noopener noreferrer">Artwork on my original site ↗</a></div>
+<BaseLayout title="Artwork — Mishti Broor" description="Paintings, drawings, and sketches from Mishti Broor's personal artwork portfolio.">
+  <section class="page-hero"><div class="container">
+    <div class="eyebrow">Outside the lab / Artwork</div>
+    <h1>A different kind of making.</h1>
+    <p>I like working with my hands outside the lab, too. Here's a collection of my artwork, from sketches to paintings.</p>
+    <div class="hero-actions"><a class="button" href={source} target="_blank" rel="noopener noreferrer">View original portfolio ↗</a></div>
   </div></section>
+  <section class="section artwork-section"><div class="container">
+    <div class="art-gallery-header"><div><span class="eyebrow">22 pieces / Personal archive</span><h2>Sketches & paintings</h2></div><p>Click a piece to view it larger.</p></div>
+    <div class="art-gallery">
+      {art.map((piece) => (
+        <button type="button" class="art-gallery-piece" data-artwork-open data-number={piece.number} data-image={piece.image} aria-label={`View artwork ${piece.number} of 22`}>
+          <img src={piece.image} alt={`Artwork by Mishti Broor, piece ${piece.number} of 22`} loading={piece.number > 4 ? 'lazy' : 'eager'} decoding="async" />
+          <span>{String(piece.number).padStart(2,'0')} / 22 <span aria-hidden="true">↗</span></span>
+        </button>
+      ))}
+    </div>
+  </div></section>
+  <dialog id="art-lightbox" class="art-lightbox" aria-label="Artwork viewer">
+    <div class="art-lightbox-bar">
+      <span id="art-lightbox-index">Artwork</span>
+      <div>
+        <button type="button" id="art-previous" aria-label="Previous artwork">← Previous</button>
+        <button type="button" id="art-next" aria-label="Next artwork">Next →</button>
+        <button type="button" id="art-close" aria-label="Close artwork viewer">Close ✕</button>
+      </div>
+    </div>
+    <img id="art-lightbox-image" alt="Artwork by Mishti Broor" />
+  </dialog>
 </BaseLayout>
+<script>
+  const dialog = document.getElementById('art-lightbox');
+  const display = document.getElementById('art-lightbox-image');
+  const indexLabel = document.getElementById('art-lightbox-index');
+  const pieces = [...document.querySelectorAll('[data-artwork-open]')];
+  let selected = 0;
+  function show(index) {
+    selected = (index + pieces.length) % pieces.length;
+    display.src = pieces[selected].dataset.image;
+    display.alt = `Artwork by Mishti Broor, piece ${selected + 1} of ${pieces.length}`;
+    indexLabel.textContent = `${String(selected + 1).padStart(2,'0')} / ${pieces.length}`;
+  }
+  pieces.forEach((piece,index) => piece.addEventListener('click', () => {
+    show(index);
+    dialog.showModal();
+  }));
+  document.getElementById('art-close').addEventListener('click', () => dialog.close());
+  document.getElementById('art-previous').addEventListener('click', () => show(selected - 1));
+  document.getElementById('art-next').addEventListener('click', () => show(selected + 1));
+  dialog.addEventListener('click', event => { if(event.target === dialog) dialog.close(); });
+  dialog.addEventListener('keydown', event => {
+    if (event.key === 'ArrowLeft') { event.preventDefault(); show(selected - 1); }
+    if (event.key === 'ArrowRight') { event.preventDefault(); show(selected + 1); }
+  });
+</script>
