@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mishti Broor — Living Lab precise two-way scroll concept (not published)</title>
+  <style>
+  :root { --ink:#1c2922; --deep:#17261f; --paper:#e7e4db; --paper2:#f3f0e9; --line:#cec9bf; --muted:#626b63; --clay:#b18f7a; --green:#819286; }
+  * { box-sizing:border-box; }
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Times New Roman",Times,serif;font-size:18px}
+  button,a{font:inherit} a{color:inherit;text-decoration:none}button{cursor:pointer}
+  .wrap{max-width:1330px;margin:auto;padding:0 45px}
+  .eyebrow,.mono{font:11px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.15em;text-transform:uppercase}
+  header{border-bottom:1px solid var(--line);background:var(--paper2);position:sticky;top:0;z-index:10}
+  .head{height:77px;display:flex;justify-content:space-between;align-items:center;gap:22px}
+  .name{font-size:28px;letter-spacing:-.05em}
+  nav{display:flex;gap:34px;font-size:17px}nav a:hover{color:#a16c52}
+  .head-right{border:1px solid var(--line);padding:8px 15px;border-radius:2px;font-size:15px}
+  .hero{background:var(--deep);color:var(--paper2);position:relative;overflow:hidden;border-bottom:8px solid #b59b83}
+  .hero:after{content:"";position:absolute;right:-140px;top:-190px;width:720px;height:720px;border:1px solid rgba(255,255,255,.09);border-radius:50%;box-shadow:0 0 0 80px rgba(255,255,255,.017),0 0 0 180px rgba(255,255,255,.014);pointer-events:none}
+  .hero-inner{min-height:610px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(240px,.8fr);gap:54px;align-items:center;padding-top:70px;padding-bottom:95px}
+  .hero .eyebrow{color:#d6d9d2}
+  h1,h2,h3,p{margin-top:0}
+  h1{font-weight:400;font-size:clamp(64px,7.4vw,126px);letter-spacing:-.07em;line-height:.88;margin:34px 0 35px;max-width:860px}
+  h1 em{color:#bdc9bd;font-weight:400}
+  .lead{font-size:21px;line-height:1.45;max-width:620px;color:#ecebe2}
+  .hero-links{display:flex;gap:23px;align-items:center;margin-top:38px;font-size:19px;flex-wrap:wrap}
+  .hero-links a{border-bottom:1px solid #abbcac;padding-bottom:7px;transition:padding .2s}
+  .hero-links a:hover{padding-bottom:13px}
+  .note-graphic{position:relative;z-index:1;align-self:center;border:1px solid #9bada1;background:#293e33;padding:23px 25px 15px;transform:rotate(2deg);box-shadow:20px 20px 0 rgba(17,28,21,.25)}
+  .note-graphic .top{display:flex;justify-content:space-between;border-bottom:1px solid #708a7c;padding-bottom:12px;color:#d3dacf}
+  .scribble{display:block;width:100%;height:auto;margin:20px 0 12px}
+  .note-graphic .caption{display:flex;justify-content:space-between;color:#bdc6ba}
+  section{scroll-margin-top:90px}
+  .section{padding:88px 0 98px;border-bottom:1px solid var(--line)}
+  .section-top{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:35px}
+  h2{font-size:clamp(53px,7vw,93px);font-weight:400;line-height:.92;letter-spacing:-.06em;margin:15px 0 0}
+  .desc{color:var(--muted);font-size:19px;max-width:430px;line-height:1.45;margin:0}
+  .switch{display:flex;background:#dad7cf;padding:4px;gap:4px}
+  .switch button{font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.07em;text-transform:uppercase;border:0;padding:10px 17px;background:transparent;color:#535b55}
+  .switch button[aria-pressed="true"]{background:var(--paper2);color:var(--ink);box-shadow:0 1px 3px #0001}
+  .projects{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .project{display:flex;flex-direction:column;border:1px solid var(--line);background:var(--paper2);min-width:0}
+  .project figure{margin:0;position:relative;overflow:hidden;background:#d9dfd8;aspect-ratio:1.45/1}
+  .project figure img{width:100%;height:100%;object-fit:cover;transition:transform .65s ease,filter .3s ease;position:relative;z-index:1} .project figure::before{content:"PROJECT PHOTO";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#637469;background:repeating-linear-gradient(45deg,#d9dfd8,#d9dfd8 14px,#e3e9e3 14px,#e3e9e3 28px);font:12px ui-monospace,monospace;letter-spacing:.18em}.project figure .index{z-index:3}
+  .project:hover figure img{transform:scale(1.045);filter:saturate(.8)}
+  .project .index{position:absolute;left:18px;top:18px;background:var(--paper2);padding:8px 10px;font:12px ui-monospace,monospace}
+  .project .body{padding:27px;display:flex;flex-direction:column;flex:1}
+  .project h3{font-weight:400;letter-spacing:-.045em;font-size:40px;line-height:1.03;margin:13px 0 16px}
+  .project p{line-height:1.47;color:#535b56;font-size:18px}
+  .project .foot{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:18px;margin-top:auto;align-items:center}
+  .project .foot a{font-size:17px;border-bottom:1px solid currentColor}
+  .projects.list{display:block;border-top:1px solid var(--line)}
+  .projects.list .project{display:grid;grid-template-columns:220px 1fr;border:0;border-bottom:1px solid var(--line);padding:20px 0;background:transparent}
+  .projects.list figure{aspect-ratio:1.55/1}
+  .projects.list .project h3{font-size:38px;margin:5px 0 9px}
+  .projects.list .project .body{padding:7px 0 7px 30px}
+  .projects.list .project .foot{margin-top:12px}
+  .path{background:#e3e7de}
+  .timeline{border-top:1px solid #b9c2b7}
+  .milestone{border-bottom:1px solid #b9c2b7}
+  .milestone button{display:grid;grid-template-columns:160px 1fr 45px;gap:24px;width:100%;text-align:left;background:transparent;border:0;color:var(--ink);padding:25px 4px;align-items:center}
+  .milestone button span:nth-child(2){font-size:32px;letter-spacing:-.04em}
+  .plus{font-size:30px;text-align:right;font-weight:400}
+  .milestone .detail{display:none;padding:0 40px 25px 185px;max-width:850px;font-size:19px;line-height:1.48;color:#515d54}
+  .milestone.open .detail{display:block}
+  .milestone.open .plus{transform:rotate(45deg)}
+  .notes{background:var(--paper2)}
+  .notes-layout{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+  .mini-card{background:var(--paper);border-left:3px solid var(--clay);padding:27px 30px;transform:rotate(-1deg)}
+  .mini-card h3{font-weight:400;font-size:37px;margin:18px 0 14px;letter-spacing:-.045em}
+  .mini-card p{line-height:1.45;color:#555e55}
+  .writing-links{display:flex;flex-direction:column;border-top:1px solid var(--line);margin-top:25px}
+  .writing-links a{display:flex;justify-content:space-between;padding:15px 0;border-bottom:1px solid var(--line);gap:15px;font-size:19px}
+  .writing-links a:hover{padding-left:8px;color:#8f5b42}
+  footer{background:var(--deep);color:var(--paper2);padding:52px 0;display:flex;justify-content:space-between}
+  footer .wrap{width:100%;display:flex;justify-content:space-between;gap:25px}
+  .foot-title{font-size:36px;margin-bottom:8px}
+  .foot-note{font-size:14px;color:#c4ccc3}
+  .demo-bar{position:fixed;bottom:19px;right:18px;z-index:30;background:#fffdf6;color:#465449;border:1px solid #bcb6aa;box-shadow:0 8px 40px #0002;padding:9px 13px;font:11px/1.4 ui-monospace,Menlo,monospace;max-width:260px}
+  a:focus-visible,button:focus-visible{outline:3px solid #af846a;outline-offset:4px}
+  @media(max-width:900px){.wrap{padding:0 25px}.hero-inner{grid-template-columns:1fr;min-height:0;padding-top:70px;padding-bottom:70px}.note-graphic{max-width:460px}.section-top{align-items:start;flex-direction:column}.projects{grid-template-columns:1fr}.notes-layout{grid-template-columns:1fr;gap:30px} h1{font-size:clamp(60px,12vw,105px)}}
+  @media(max-width:560px){.head{height:68px}.name{font-size:23px}nav{gap:15px;font-size:14px}.head-right{display:none}h1{font-size:60px}.lead{font-size:19px}.section{padding:65px 0}.section-top{gap:20px}.project h3{font-size:34px}.projects.list .project{grid-template-columns:120px 1fr;gap:10px}.projects.list .project .body{padding:0}.projects.list .project h3{font-size:25px}.projects.list .project p{font-size:14px}.projects.list .project .foot{display:block}.projects.list figure{aspect-ratio:1/1}.milestone button{grid-template-columns:65px 1fr 20px;gap:12px}.milestone button span:nth-child(2){font-size:23px}.milestone .detail{padding:0 10px 25px 80px}.demo-bar{position:static;max-width:none;text-align:center}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+  
+/* Precise symmetric scroll effect: focus peaks at each chapter, then recedes. */
+.precision-chapter{background:var(--paper);padding:0 0 7vh;}
+.precision-track{height:390vh;position:relative;}
+.precision-viewport{height:calc(100vh - 77px);height:calc(100dvh - 77px);position:sticky;top:77px;overflow:hidden;isolation:isolate;background:radial-gradient(ellipse at 50% 45%, #f5f3ec 0%,#ebe7dd 80%);}
+.precision-viewport::before{content:"";position:absolute;inset:0;opacity:.26;pointer-events:none;background-image:linear-gradient(#b7c4b4 1px,transparent 1px),linear-gradient(90deg,#b7c4b4 1px,transparent 1px);background-size:78px 78px;mask-image:linear-gradient(transparent 0%,black 20%,black 75%,transparent 100%)}
+.precision-instructions{position:absolute;z-index:15;top:26px;left:clamp(22px,4vw,70px);color:#496556;}
+.precision-card{position:absolute;left:50%;top:49%;height:min(71vh,760px);width:min(1350px,calc(100% - 72px));display:grid;grid-template-columns:44% 56%;background:#f8f7f2;border:1px solid var(--line);box-shadow:0 25px 80px rgba(26,36,29,.17);overflow:hidden;transform-origin:center center;transform:translate(-50%,-50%) translate3d(0,var(--dy,0px),0) scale(var(--s,1));opacity:var(--o,1);filter:blur(var(--blur,0px));z-index:var(--depth,1);backface-visibility:hidden;will-change:transform,opacity,filter;}
+.precision-card[data-project="1"]{background:#e2e9e0;}
+.precision-card .focus-copy{display:flex;flex-direction:column;justify-content:space-between;gap:16px;padding:clamp(21px,3.9vw,60px);}
+.precision-card .focus-copy h3{font-weight:400;font-size:clamp(42px,5.1vw,88px);line-height:.96;letter-spacing:-.065em;margin:0;}
+.precision-card .summary{font-size:clamp(17px,1.5vw,22px);line-height:1.37;color:#586359;max-width:440px;margin:0;}
+.precision-card .focus-bottom{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;}
+.precision-card .focus-bottom a{border-bottom:1px solid #354b3a;padding-bottom:4px;font-size:18px;}
+.precision-card .focus-visual{overflow:hidden;position:relative;background:linear-gradient(135deg,#d4dfd6,#c7d0c6);}
+.precision-card .focus-visual:before{content:"PROJECT PHOTOGRAPH";position:absolute;inset:0;display:grid;place-items:center;letter-spacing:.15em;font:12px ui-monospace,monospace;color:#688070;}
+.precision-card .focus-visual img{width:100%;height:100%;object-fit:cover;position:relative;display:block;filter:saturate(.8);}
+.precision-card .focus-photo-note{position:absolute;right:20px;bottom:20px;background:#f8f7f2df;color:#4b6553;padding:8px 12px;z-index:1;font:10px ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;}
+.precision-meter{position:absolute;z-index:15;left:clamp(22px,4vw,70px);right:clamp(22px,4vw,70px);bottom:26px;display:flex;align-items:center;gap:19px;color:#465b4a;}
+.precision-track-line{position:relative;flex:1;height:2px;background:#aab8aa;}
+.precision-track-indicator{height:100%;width:0%;display:block;background:#355745;transition:none;}
+.precision-hint{position:absolute;right:clamp(22px,4vw,70px);top:26px;color:#496556;z-index:15;}
+.precision-chapter .focus-outro{padding:5vh 0 0;text-align:center;font-size:26px;color:#586b5a;font-style:italic;}
+@media(max-width:900px){.precision-card{grid-template-columns:1fr;grid-template-rows:42% 58%;width:calc(100% - 32px);height:min(76vh,700px);top:49%;}.precision-card .focus-copy{grid-row:2;padding:24px;gap:10px}.precision-card .focus-visual{grid-row:1}.precision-card .focus-copy h3{font-size:clamp(37px,5.4vw,59px)}.precision-card .summary{font-size:16px}.precision-hint{display:none}.precision-track{height:370vh}}
+@media(max-width:560px){.precision-viewport{top:68px;height:calc(100dvh - 68px)}.precision-card{width:calc(100% - 20px);height:77%;grid-template-rows:40% 60%;top:48%;}.precision-card .focus-copy{padding:19px;gap:8px}.precision-card .focus-copy h3{font-size:clamp(31px,8.1vw,43px)}.precision-card .summary{font-size:15px;line-height:1.25}.precision-card .focus-bottom{gap:6px}.precision-card .focus-bottom .mono{font-size:9px}.precision-card .focus-bottom a{font-size:15px}.precision-instructions{font-size:9px;top:19px}.precision-meter{bottom:18px}}
+@media(prefers-reduced-motion:reduce){.precision-track{height:auto}.precision-viewport{height:auto;position:relative;top:auto;overflow:visible;padding:60px 12px;display:flex;flex-direction:column;gap:22px}.precision-card{position:relative;top:auto;left:auto;width:100%;height:auto;min-height:550px;opacity:1!important;filter:none!important;transform:none!important;will-change:auto;display:grid}.precision-instructions,.precision-meter,.precision-hint{display:none}}
+
+  .head {height:72px;} .name{white-space:nowrap;} .main-nav{gap:clamp(12px,2vw,29px);font-size:17px;align-items:center;}
+  .mobile-nav {display:none;position:relative;margin-left:auto;} .mobile-nav summary{list-style:none;cursor:pointer;padding:9px 12px;border:1px solid var(--line);border-radius:7px;}
+  .mobile-nav summary::-webkit-details-marker{display:none} .mobile-nav nav{position:absolute;right:0;top:calc(100% + 7px);width:210px;background:var(--paper2);border:1px solid var(--line);border-radius:9px;padding:12px;display:grid;gap:0;box-shadow:0 12px 32px #0002;}
+  .mobile-nav nav a{padding:10px 7px;} .mobile-nav nav a:hover{background:#dfe4da;}
+  @media(max-width:980px){.main-nav{display:none}.mobile-nav{display:block}.wrap{padding:0 22px}}
+</style>
+</head>
+<body>
+  <header>
+    <div class="wrap head">
+      <a class="name" href="index.html">Mishti Broor.</a>
+      <nav class="main-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="#path">About</a><a href="#work">Work</a><a href="https://mbroor.github.io/mishti-portfolio/writing" target="_blank" rel="noopener noreferrer">Writing ↗</a><a href="artwork.html">Artwork</a><a href="https://drive.google.com/file/d/1G_Ssr0d5Gii7ro_BA77Bx_fRt_DBN7I6/view" target="_blank" rel="noopener noreferrer">Résumé ↗</a></nav><details class="mobile-nav"><summary>Menu ☰</summary><nav aria-label="Mobile menu"><a href="index.html">Home</a><a href="#path">About</a><a href="#work">Work</a><a href="https://mbroor.github.io/mishti-portfolio/writing" target="_blank">Writing ↗</a><a href="artwork.html">Artwork</a><a href="https://drive.google.com/file/d/1G_Ssr0d5Gii7ro_BA77Bx_fRt_DBN7I6/view" target="_blank">Résumé ↗</a></nav></details>
+      
+    </div>
+  </header>
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div>
+          <div class="eyebrow">Biomedical engineering / Northwestern University</div>
+          <h1>Hi, I'm Mishti.<br><em>I like making<br>things work.</em></h1>
+          <p class="lead">My work has taken me from designing EEG electrode attachments in CAD to 3D printing, participant testing, and signal analysis. I'm now working on wearable EEG hardware while learning more about bioelectronics.</p>
+          <div class="hero-links"><a href="#work">See selected work ↗</a><a href="#path">How I got here ↗</a></div>
+        </div>
+        <div class="note-graphic" aria-label="Decorative signal sketch — not experimental data">
+          <div class="top eyebrow"><span>From the notebook</span><span>01/03</span></div>
+          <svg class="scribble" viewBox="0 0 300 170" role="img" aria-label="Conceptual oscillating trace">
+            <defs><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#759183" stroke-width=".55"/></pattern></defs>
+            <rect width="300" height="170" fill="url(#grid)"/>
+            <polyline points="0,85 26,86 38,80 45,95 56,83 67,82 73,110 81,50 88,98 98,84 121,86 133,71 141,93 154,84 168,85 175,105 182,49 189,97 202,84 228,84 237,78 246,90 257,84 300,85" fill="none" stroke="#dce7dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="12" y="17" font-size="9" fill="#c3d3c6" font-family="monospace">CONCEPT / SIGNAL MOTIF</text>
+            <text x="12" y="160" font-size="9" fill="#c3d3c6" font-family="monospace">NOT ACTUAL EEG DATA</text>
+          </svg>
+          <div class="caption eyebrow"><span>Hardware → signals</span><span>Sketch / 2026</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="focus-intro" id="work">
+      <div class="wrap introline">
+        <div><div class="eyebrow">01 / Selected work</div><h2>Some things<br>I've made.</h2></div>
+        <p class="desc">Scroll to explore two projects that took me from designing on a screen to making and testing physical things.</p>
+      </div>
+    </section>
+    <section class="precision-chapter" aria-label="Projects expand into focus and shrink as you scroll away">
+      <div class="precision-track" data-precision-track>
+        <div class="precision-viewport" data-precision-viewport>
+          <div class="precision-instructions mono">SELECTED WORK &nbsp; / &nbsp; SCROLL TO FOCUS</div>
+          <article class="precision-card" data-precision-card data-project="0" style="--s:.68;--dy:22vh;--o:.22;--blur:1.2px;--depth:1">
+            <div class="focus-copy">
+              <div class="eyebrow">01 / EEG hardware · UIC</div>
+              <h3>Designing for better scalp contact.</h3>
+              <p class="summary">I designed and 3D-printed EEG electrode attachments for textured hair, then helped evaluate them in a 30-participant study.</p>
+              <div class="focus-bottom"><span class="mono">CAD · 3D PRINTING · EEG</span><a href="https://mbroor.github.io/mishti-portfolio/projects/inclusive-eeg-electrodes" target="_blank" rel="noopener noreferrer">Explore project ↗</a></div>
+            </div>
+            <div class="focus-visual"><img src="https://raw.githubusercontent.com/mbroor/mishti-portfolio/main/public/images/eeg-poster-solo.jpeg" alt="Mishti presenting her EEG electrode research" loading="lazy"><span class="focus-photo-note">Project / EEG research</span></div>
+          </article>
+          <article class="precision-card" data-precision-card data-project="1" style="--s:.68;--dy:38vh;--o:.12;--blur:2px;--depth:0">
+            <div class="focus-copy">
+              <div class="eyebrow">02 / Medical device design · UIC</div>
+              <h3>Making anatomy tangible.</h3>
+              <p class="summary">I worked on an in-vitro spinal cord model for cerebrospinal-fluid flow studies, using CAD and fabrication techniques.</p>
+              <div class="focus-bottom"><span class="mono">FUSION 360 · MSLA · SILICONE</span><a href="https://mbroor.github.io/mishti-portfolio/projects/spinal-cord-model" target="_blank" rel="noopener noreferrer">Explore project ↗</a></div>
+            </div>
+            <div class="focus-visual"><img src="https://raw.githubusercontent.com/mbroor/mishti-portfolio/main/public/images/spinal-cord-expo.jpeg" alt="Mishti showing her spinal cord model at the UIC Engineering Expo" loading="lazy"><span class="focus-photo-note">Project / Engineering Expo</span></div>
+          </article>
+          <div class="precision-meter" aria-hidden="true"><span class="precision-track-line"><span class="precision-track-indicator" data-precision-indicator></span></span><span class="mono" data-precision-status>01 / 02</span></div>
+          <div class="precision-hint mono">IN FOCUS: <span data-precision-label>EEG electrode design</span></div>
+        </div>
+      </div>
+      <div class="wrap focus-outro">The interesting part is usually figuring out what to try next.</div>
+    </section>
+    <section class="section path" id="path">
+      <div class="wrap">
+        <div class="section-top"><div><div class="eyebrow">02 / Research notes</div><h2>A few stops along the way.</h2></div><p class="desc">Click a year to open the details. I wanted this to read more like a record of work than a formal timeline.</p></div>
+        <div class="timeline">
+          <div class="milestone"><button aria-expanded="false" type="button"><span class="eyebrow">2025</span><span>EEG hardware research at UIC</span><span class="plus">+</span></button><div class="detail">My undergraduate work included CAD design, resin printing, electrode preparation, EEG acquisition and analysis, and experiments involving walking and scalp-contact challenges.</div></div>
+          <div class="milestone"><button aria-expanded="false" type="button"><span class="eyebrow">2025</span><span>Clinical immersion</span><span class="plus">+</span></button><div class="detail">I participated in an NIH-funded clinical immersion program and observed clinical workflows and unmet needs in ophthalmology.</div></div>
+          <div class="milestone"><button aria-expanded="false" type="button"><span class="eyebrow">2026</span><span>Graduate research at Northwestern</span><span class="plus">+</span></button><div class="detail">I'm pursuing my master's in biomedical engineering and working on wearable clinical EEG hardware. This section stays broad until there is more public work to share.</div></div>
+        </div>
+      </div>
+    </section>
+    <section class="section notes" id="notes">
+      <div class="wrap notes-layout">
+        <div><div class="eyebrow">03 / The living lab</div><h2>Still figuring things out.</h2><p class="desc" style="margin-top:24px;max-width:530px">I'm interested in bioelectronics and the practical engineering behind wearable sensing. I'm starting to learn more about circuits and embedded systems, but I don't have a finished bioelectronics project to show yet.</p><p style="margin-top:24px;font-size:20px">When I do, it'll go here—with the early attempts, not just the polished result.</p></div>
+        <div class="mini-card"><div class="eyebrow">On the reading table / Writing</div><h3>Ideas worth looking into.</h3><p>I write about EEG wearables, BCIs, and devices that use neural or physiological signals. Writing helps me understand the engineering decisions behind them.</p><div class="writing-links"><a href="https://mbroor.github.io/mishti-portfolio/writing" target="_blank" rel="noreferrer"><span>Browse my technical articles</span><span>↗</span></a><a href="https://doi.org/10.64898/2026.10.01.755885" target="_blank" rel="noreferrer"><span>Read the EEG preprint</span><span>↗</span></a></div></div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap"><div><div class="foot-title">Mishti Broor.</div><div class="foot-note">A portfolio of work, notes, and projects in progress.</div></div><div class="foot-note"><a href="artwork.html">Explore my artwork ↗</a><br>Offline preview · Not published</div></div></footer>
+  <div class="demo-bar">SCROLL: SMALL → FULL SIZE → SMALL · SCROLL UP TO REVERSE</div>
+  <script>
+    const milestones = document.querySelectorAll('.milestone button');
+    milestones.forEach(button => button.addEventListener('click', () => {
+      const milestone = button.closest('.milestone');
+      const open = !milestone.classList.contains('open');
+      milestone.classList.toggle('open', open);
+      button.setAttribute('aria-expanded', String(open));
+    }));
+
+    // Position-based animation with two symmetric sides, tied directly to scroll progress.
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const track = document.querySelector('[data-precision-track]');
+    const viewport = document.querySelector('[data-precision-viewport]');
+    const cards = [...document.querySelectorAll('[data-precision-card]')];
+    const indicator = document.querySelector('[data-precision-indicator]');
+    const status = document.querySelector('[data-precision-status]');
+    const label = document.querySelector('[data-precision-label]');
+    const clamp = (n,a,b) => Math.min(b, Math.max(a,n));
+    let pending = false;
+    function renderFocus() {
+      pending = false;
+      if (reduced.matches) return;
+      const top = parseFloat(getComputedStyle(viewport).top) || 0;
+      const scrollable = Math.max(1,track.offsetHeight - viewport.offsetHeight);
+      const progress = clamp((top - track.getBoundingClientRect().top) / scrollable, 0, 1);
+      // Chapter centers at 1/3 and 2/3; ends recede to small again.
+      const phase = progress * 3 - 1;
+      cards.forEach((card,index) => {
+        const distance = phase - index;
+        const falloff = clamp(Math.abs(distance),0,1);
+        const scale = 1 - .34 * falloff;
+        // Hide the inactive panel outside the hand-off window, preventing ghosted text.
+        const presence = index === 0
+          ? clamp((.90 - phase) / .30, 0, 1)
+          : clamp((phase - .10) / .30, 0, 1);
+        const opacity = (1 - .64 * falloff) * presence;
+        const blur = 1.6 * falloff;
+        const offset = -distance * Math.min(245, window.innerHeight * .27);
+        card.style.setProperty('--s',scale.toFixed(4));
+        card.style.setProperty('--dy',offset.toFixed(2)+'px');
+        card.style.setProperty('--o',opacity.toFixed(4));
+        card.style.setProperty('--blur',blur.toFixed(2)+'px');
+        card.style.setProperty('--depth',String(Math.round((1.5-falloff)*10)));
+        card.style.pointerEvents = falloff < .45 && presence > .8 ? 'auto' : 'none';
+        card.dataset.scale = scale.toFixed(3); // helps test the transform at scroll checkpoints.
+      });
+      indicator.style.width = (progress*100).toFixed(2)+'%';
+      const focused = clamp(Math.round(phase),0,cards.length-1);
+      status.textContent = String(focused+1).padStart(2,'0')+' / '+String(cards.length).padStart(2,'0');
+      label.textContent = focused === 0 ? 'EEG electrode design' : 'Spinal cord model';
+    }
+    function scheduleFocus(){if(!pending){pending=true;requestAnimationFrame(renderFocus)}}
+    function motionChange(){if(!reduced.matches)scheduleFocus();else cards.forEach(c=>{c.style.removeProperty('--s');c.style.removeProperty('--dy');c.style.removeProperty('--o');c.style.removeProperty('--blur');c.style.pointerEvents='auto'})}
+    window.addEventListener('scroll',scheduleFocus,{passive:true});
+    window.addEventListener('resize',scheduleFocus);
+    reduced.addEventListener('change',motionChange);
+    motionChange();
+  </script>
+</body>
+</html>
