@@ -10,7 +10,7 @@ const resumeUrl = 'https://drive.google.com/file/d/1G_Ssr0d5Gii7ro_BA77Bx_fRt_DB
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#f7f7f4" />
+    <meta name="theme-color" content="#1b2823" />
     <title>{title}</title>
   </head>
   <body>
@@ -18,13 +18,24 @@ const resumeUrl = 'https://drive.google.com/file/d/1G_Ssr0d5Gii7ro_BA77Bx_fRt_DB
       <div class="container nav-inner">
         <a class="brand" href={base}>Mishti Broor</a>
         <nav class="nav-links" aria-label="Primary navigation">
-          <a href={`${base}projects`}>Projects</a>
-          <a href={`${base}research`}>Research</a>
-          <a href={`${base}bioelectronics`}>Bioelectronics</a>
-          <a href={`${base}writing`}>Writing</a>
+          <a href={base}>Home</a>
           <a href={`${base}about`}>About</a>
-          <a class="nav-cta" href={resumeUrl} target="_blank">Résumé ↗</a>
+          <a href={`${base}work`}>Work</a>
+          <a href={`${base}writing`}>Writing</a>
+          <a href={`${base}artwork`}>Artwork</a>
+          <a class="nav-cta" href={resumeUrl} target="_blank" rel="noopener noreferrer">Résumé ↗</a>
         </nav>
+        <details class="mobile-nav">
+          <summary aria-label="Open navigation menu">Menu <span aria-hidden="true">☰</span></summary>
+          <nav aria-label="Mobile navigation">
+            <a href={base}>Home</a>
+            <a href={`${base}about`}>About</a>
+            <a href={`${base}work`}>Work</a>
+            <a href={`${base}writing`}>Writing</a>
+            <a href={`${base}artwork`}>Artwork</a>
+            <a href={resumeUrl} target="_blank" rel="noopener noreferrer">Résumé ↗</a>
+          </nav>
+        </details>
       </div>
     </header>
     <main><slot /></main>
@@ -34,7 +45,8 @@ const resumeUrl = 'https://drive.google.com/file/d/1G_Ssr0d5Gii7ro_BA77Bx_fRt_DB
         <div class="footer-links">
           <a href="mailto:mishtibroor2028@u.northwestern.edu">Email</a>
           <a href="https://www.linkedin.com/in/mishti-broor" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href={resumeUrl} target="_blank">Résumé</a>
+          <a href={`${base}artwork`}>Artwork</a>
+          <a href={resumeUrl} target="_blank" rel="noopener noreferrer">Résumé</a>
         </div>
       </div>
     </footer>
