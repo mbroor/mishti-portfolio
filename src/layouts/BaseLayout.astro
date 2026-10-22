@@ -2,6 +2,7 @@
 import '../styles/global.css';
 const { title = 'Mishti Broor', description = 'Biomedical engineer working across bioelectronics, neural interfaces, wearable sensing, and human-subject research.' } = Astro.props;
 const base = '/mishti-portfolio/';
+const resumeUrl = 'https://drive.google.com/file/d/1G_Ssr0d5Gii7ro_BA77Bx_fRt_DBN7I6/view?usp=drivesdk';
 ---
 <!doctype html>
 <html lang="en">
@@ -22,7 +23,7 @@ const base = '/mishti-portfolio/';
           <a href={`${base}bioelectronics`}>Bioelectronics</a>
           <a href={`${base}writing`}>Writing</a>
           <a href={`${base}about`}>About</a>
-          <a class="nav-cta" href={`${base}docs/mishti-broor-resume.pdf`} target="_blank">Résumé ↗</a>
+          <a class="nav-cta" href={resumeUrl} target="_blank">Résumé ↗</a>
         </nav>
       </div>
     </header>
@@ -33,7 +34,7 @@ const base = '/mishti-portfolio/';
         <div class="footer-links">
           <a href="mailto:mishtibroor2028@u.northwestern.edu">Email</a>
           <a href="https://www.linkedin.com/in/mishti-broor" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href={`${base}docs/mishti-broor-resume.pdf`} target="_blank">Résumé</a>
+          <a href={resumeUrl} target="_blank">Résumé</a>
         </div>
       </div>
     </footer>
