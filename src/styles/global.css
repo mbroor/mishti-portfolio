@@ -126,3 +126,62 @@ footer { padding:50px 0 70px; border-top:1px solid var(--line); margin-top:60px;
   .two-up img { height:300px; }
   .hero-image { max-height:520px; }
 }
+
+
+/* Living Lab — editorial scroll-focus preview (isolated to homepage feature classes) */
+:root { --bg: #eeeae2; --surface: #f8f6f0; --text: #25362f; --muted: #637068; --line: #d2ccc1; --soft: #e3e7de; --accent: #536e5c; }
+body { font-family: "Times New Roman", Times, serif; }
+.nav-links { font-size: 1.06rem; }
+.hero { background: #25362f; color: #f8f6f0; padding: 102px 0 104px; }
+.hero h1 { font-weight: 400; font-size: clamp(4rem, 7vw, 7.4rem); letter-spacing: -.075em; line-height: .93; }
+.hero h1 em { font-weight: 400; color: #c2d0c3; }
+.hero .eyebrow { color: #c9d6ca; }
+.hero .lead { color: #e0e7dc; }
+.hero .button { background: transparent; border-color: #899b8d; color: #f8f6f0; }
+.hero .button.primary { background: #f8f6f0; border-color: #f8f6f0; color: #25362f; }
+.section-header h2,.page-hero h1,.card h3 { font-weight: 400; }
+.focus-intro { padding: 103px 0 16px; }
+.focus-intro-row { display: flex; justify-content: space-between; align-items: end; gap: 50px; }
+.focus-intro h2 { max-width: 750px; margin: 0; font-size: clamp(3.7rem,7.7vw,7.8rem); font-weight: 400; letter-spacing: -.075em; line-height: .91; }
+.focus-intro p { font-size: 1.24rem; line-height: 1.46; max-width: 285px; color: var(--muted); margin: 0; }
+.focus-stories { padding: 0 22px 7vh; }
+.focus-stage { min-height: 150vh; position: relative; padding-top: 1px; }
+.focus-story { display: grid; grid-template-columns: 45% 55%; position: sticky; top: 15vh; height: 70vh; min-height: 470px; max-height: 800px; max-width: 1370px; margin: 0 auto; background: #f8f6f0; border: 1px solid #d1cbc0; box-shadow: 0 32px 85px rgba(31,43,34,.11); overflow: hidden; }
+.focus-stage:nth-child(even) .focus-story { background:#e2e9df; }
+.focus-details { display:flex; flex-direction: column; justify-content: space-between; padding: clamp(26px,4vw,66px); gap: 20px; min-width: 0; }
+.focus-details h3 { font-size: clamp(2.8rem,5.4vw,6rem); font-weight:400; letter-spacing: -.07em; line-height: .96; margin:0; }
+.focus-details p { font-size: clamp(1.1rem,1.65vw,1.43rem); color: #576258; line-height:1.45; margin:0; max-width:420px; }
+.focus-cta { display:flex; justify-content:space-between; flex-wrap:wrap; align-items:center; gap:15px; }
+.focus-cta span { font: 11px ui-monospace,monospace; letter-spacing:.07em; text-transform:uppercase; }
+.focus-cta strong { font-weight:normal; border-bottom:1px solid currentColor; padding-bottom:5px; font-size:1.13rem; }
+.focus-photo { overflow:hidden; position:relative; background:#d4ded3; }
+.focus-photo img { width:100%; height:100%; object-fit:cover; filter:saturate(.79); }
+.focus-photo > span {position:absolute; bottom:20px;right:20px; padding:8px 12px; background:#f8f6f0e8; color:#3b574a; font:10px ui-monospace,monospace; text-transform:uppercase;letter-spacing:.06em; }
+body.focus-motion .focus-story { transform: translateY(calc((1 - var(--focus,0)) * 38px)) scale(calc(.79 + var(--focus,0) * .21)); opacity: calc(.46 + var(--focus,0) * .54); filter:blur(calc((1 - var(--focus,0)) * 1.5px)); will-change:transform,opacity,filter; }
+.focus-end-note { font-style:italic; font-size:clamp(1.25rem,2.3vw,2rem); text-align:center; color:#5d7463; }
+@media(max-width:900px){
+  .focus-intro-row{display:block;}
+  .focus-intro p{margin-top:24px;max-width:460px;}
+  .focus-story{grid-template-columns:1fr; grid-template-rows:48% 52%; height:73vh; min-height:520px;top:12vh;}
+  .focus-details{grid-row:2;padding:25px;}
+  .focus-photo{grid-row:1;}
+  .focus-details h3{font-size:clamp(2.2rem,6.5vw,3.3rem);}
+  .focus-details p{font-size:1rem;}
+}
+@media(max-width:560px){
+  .focus-stories{padding:0 12px 7vh;}
+  .focus-stage{min-height:130vh;}
+  .focus-story{height:76vh; min-height:540px;grid-template-rows:42% 58%;top:11vh;}
+  .focus-details{padding:19px; gap:8px;}
+  .focus-details h3{font-size:2.5rem;}
+  .focus-intro{padding-top:67px;}
+  .focus-details .eyebrow{font-size:.63rem;}
+  .focus-cta strong{font-size:.95rem;}
+  .focus-cta span{font-size:9px;}
+  .focus-photo > span{font-size:8px;}
+}
+@media(prefers-reduced-motion:reduce){
+  body.focus-motion .focus-story{transform:none!important;opacity:1!important;filter:none!important;will-change:auto!important;}
+  .focus-stage{min-height:100vh;}
+  .focus-story{position:relative;top:0;}
+}
