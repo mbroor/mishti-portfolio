@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const originalPortfolio = 'https://drive.google.com/file/d/1yP8CbWOcifkhbyJ6ONhZg9As0Ja9l22e/view';
+const preview = 'https://drive.google.com/file/d/1yP8CbWOcifkhbyJ6ONhZg9As0Ja9l22e/preview';
+---
+<BaseLayout title="Artwork — Mishti Broor" description="A selection of drawings and artwork by Mishti Broor.">
+  <section class="page-hero"><div class="container"><div class="eyebrow">Outside the lab / Art</div><h1>A different kind of making.</h1><p>I enjoy making things outside engineering, too. Here's a collection of my drawings and artwork.</p></div></section>
+  <section class="section"><div class="container">
+    <div class="artwork-viewer">
+      <div class="artwork-viewer-header"><span>Selected artwork / 22-page portfolio</span><a href={originalPortfolio} target="_blank" rel="noopener noreferrer">View original PDF ↗</a></div>
+      <iframe title="Mishti Broor artwork portfolio" src={preview} loading="lazy" allow="fullscreen"></iframe>
+    </div>
+    <p class="artwork-note">The artwork is presented from my original portfolio. If the embedded viewer isn't available in your browser, use the PDF link above.</p>
+    <div class="hero-actions"><a class="button" href="https://sites.google.com/view/mishti-broor/my-artwork" target="_blank" rel="noopener noreferrer">Artwork on my original site ↗</a></div>
+  </div></section>
+</BaseLayout>
