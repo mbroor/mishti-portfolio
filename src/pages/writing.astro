@@ -1,14 +1,105 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const groups = [
+  {
+    name: "EEG & brain sensing", description: "From laboratory EEG to wearable brain monitoring, neuroimaging, and real-world sensing.",
+    articles: [
+      { number: 2, title: "EEG in Your Headphones: Neurable’s MW75 Neuro LT Explained", url: "https://www.mishtibroor.com/technical-blogs/2-eeg-in-your-headphones-neurables-mw75-neuro-lt-explained" },
+      { number: 3, title: "Inside Muse S Athena: Unpacking the EEG + fNIRS Dual-Sensor Architecture", url: "https://www.mishtibroor.com/technical-blogs/3-inside-muse-s-athena-unpacking-the-eeg-fnirs-dual-sensor-architecture" },
+      { number: 4, title: "Optical Brain Mapping: How Kernel Flow Brings fMRI-Quality Neuroimaging Out of the Hospital", url: "https://www.mishtibroor.com/technical-blogs/4-optical-brain-mapping-how-kernel-flow-brings-fmri-quality-neuroimaging" },
+      { number: 8, title: "The Emotiv Insight: A Gateway to Accessible Brain Computer Interfaces", url: "https://www.mishtibroor.com/technical-blogs/8-the-emotiv-insight-a-gateway-to-accessible-brain-computer-interfaces" },
+      { number: 19, title: "Temple: The $25M Bet on Gravity and Brain Aging", url: "https://www.mishtibroor.com/technical-blogs/19-temple-the-25m-bet-on-gravity-and-brain-aging" },
+      { number: 25, title: "The IDUN Guardian 4: Brain Sensing Goes Wearable", url: "https://www.mishtibroor.com/technical-blogs/25-the-idun-guardian-4-brain-sensing-goes-wearable" },
+      { number: 29, title: "FRENZ Brainband: The Sleep Loop", url: "https://www.mishtibroor.com/technical-blogs/29-frenz-brainband-the-sleep-loop" },
+      { number: 34, title: "Neurosity Crown: Brainwaves in Action", url: "https://www.mishtibroor.com/technical-blogs/34-neurosity-crown-brainwaves-in-action" },
+      { number: 43, title: "Inside Tedream™: The Shift from Laboratory to At-Home Sleep Tracking", url: "https://www.mishtibroor.com/technical-blogs/43-inside-tedream-the-shift-from-laboratory-to-at-home-sleep-tracking" },
+      { number: 44, title: "The Rise of Cognitive Athletics: Nuromova N1 EEG Headband", url: "https://www.mishtibroor.com/technical-blogs/44-the-rise-of-cognitive-athletics-nuromova-n1-eeg-headband" },
+    ],
+  },
+  {
+    name: "Neural interfaces & assistive technology", description: "How neural, muscle, and multimodal interfaces enable communication, control, and rehabilitation.",
+    articles: [
+      { number: 1, title: "Meta Neural Band, Demystified: EMG Input for Everyday XR", url: "https://www.mishtibroor.com/technical-blogs/1-meta-neural-band-demystified-emg-input-for-everyday-xr" },
+      { number: 5, title: "The Synchron Stentrode: A BCI That Goes Through Your Veins", url: "https://www.mishtibroor.com/technical-blogs/5-the-synchron-stentrode-a-bci-that-goes-through-your-veins" },
+      { number: 13, title: "The Augmental MouthPad: When Your Tongue Becomes Your Eleventh Finger", url: "https://www.mishtibroor.com/technical-blogs/13-the-augmental-mouthpad-when-your-tongue-becomes-your-eleventh-finger" },
+      { number: 14, title: "Inside the Cionic Neural Sleeve: The AI That Teaches Your Leg to Walk", url: "https://www.mishtibroor.com/technical-blogs/14-inside-the-cionic-neural-sleeve-the-ai-that-teaches-your-leg-to-walk" },
+      { number: 23, title: "Brainwaves Meet Spatial Computing: Cognixion + Vision Pro", url: "https://www.mishtibroor.com/technical-blogs/23-brainwaves-meet-spatial-computing-cognixion-vision-pro" },
+      { number: 27, title: "Mudra Link: When Your Intention Becomes Your Command", url: "https://www.mishtibroor.com/technical-blogs/27-mudra-link-when-your-intention-becomes-your-command" },
+      { number: 45, title: "Moving Beyond Typing: How CorTec Is Using BCIs to Heal the Brain", url: "https://www.mishtibroor.com/technical-blogs/45-moving-beyond-typing-how-cortec-is-using-bcis-to-heal-the-brain" },
+    ],
+  },
+  {
+    name: "Neuromodulation & neurotherapeutics", description: "Engineering devices that use stimulation and feedback for health, rehabilitation, and cognitive function.",
+    articles: [
+      { number: 11, title: "The Nerivio REN Wearable: A Deep Dive into Non-Drug Migraine Relief", url: "https://www.mishtibroor.com/technical-blogs/11-the-nerivio-ren-wearable-a-deep-dive-into-non-drug-migraine-relief" },
+      { number: 12, title: "The End of Sleepless Nights? A Deep Dive into the Elemind", url: "https://www.mishtibroor.com/technical-blogs/12-the-end-of-sleepless-nights-a-deep-dive-into-the-elemind" },
+      { number: 15, title: "Cala kIQ: The Pacemaker for Your Tremor", url: "https://www.mishtibroor.com/technical-blogs/15-cala-kiq-the-pacemaker-for-your-tremor" },
+      { number: 16, title: "The Tinnitus Hack: Why Bimodal Neuromodulation Works", url: "https://www.mishtibroor.com/technical-blogs/16-the-tinnitus-hack-why-bimodal-neuromodulation-works" },
+      { number: 21, title: "Neuroplasticity on Demand: Inside Mendi’s Brain Training", url: "https://www.mishtibroor.com/technical-blogs/21-neuroplasticity-on-demand-inside-mendis-brain-training" },
+      { number: 26, title: "The Science of Better Sleep: Inside WillSleep’s Neurotech Revolution", url: "https://www.mishtibroor.com/technical-blogs/26-the-science-of-better-sleep-inside-willsleeps-neurotech-revolution" },
+      { number: 28, title: "Ohm Body: Period Relief Reimagined", url: "https://www.mishtibroor.com/technical-blogs/28-ohm-body-period-relief-reimagined" },
+      { number: 31, title: "Inside Inner Cosmos: Digital Pills for the Mind", url: "https://www.mishtibroor.com/technical-blogs/31-inside-inner-cosmos-digital-pills-for-the-mind" },
+      { number: 33, title: "Wired for Calm: The Science of Nuropod", url: "https://www.mishtibroor.com/technical-blogs/33-wired-for-calm-the-science-of-nuropod" },
+      { number: 38, title: "Neurovalens Modius Spero: The First FDA-Approved Wearable for PTSD", url: "https://www.mishtibroor.com/technical-blogs/38-neurovalens-modius-spero-the-first-fda-approved-wearable-for-ptsd" },
+      { number: 39, title: "Nudge Zero: Deep-Brain Ultrasound Without Surgery", url: "https://www.mishtibroor.com/technical-blogs/39-nudge-zero-deep-brain-ultrasound-without-surgery" },
+      { number: 41, title: "Electricity Over Caffeine? The Science, Promise, and Limits of Mave Health", url: "https://www.mishtibroor.com/technical-blogs/41-electricity-over-caffeine-the-science-promise-and-limits-of-mave" },
+      { number: 42, title: "Inside Sychedelic: How the tDCS Audio System Works", url: "https://www.mishtibroor.com/technical-blogs/42-inside-sychedelic-how-the-tdcs-audio-system-works" },
+    ],
+  },
+  {
+    name: "Wearable health & biosensors", description: "Continuous sensing, physiology, human factors, and clinical translation in everyday form factors.",
+    articles: [
+      { number: 6, title: "Oura Ring Gen 4: Sleep Accuracy, Recovery Tracking, and Real Limitations", url: "https://www.mishtibroor.com/technical-blogs/6-oura-ring-gen-4-sleep-accuracy-recovery-tracking-and-real-limitations" },
+      { number: 17, title: "Why AirPods Just Became More Valuable Than Hearing Aids", url: "https://www.mishtibroor.com/technical-blogs/17-why-airpods-just-became-more-valuable-than-hearing-aids" },
+      { number: 18, title: "NoWatch: Beautifully Absent — No Screen, No Notifications, No Regrets", url: "https://www.mishtibroor.com/technical-blogs/18-nowatch-beautifully-absent-no-screen-no-notifications-no-regrets" },
+      { number: 30, title: "Clair: World's First Wearable Hormone Tracker", url: "https://www.mishtibroor.com/technical-blogs/30-clair-worlds-first-wearable-hormone-tracker" },
+      { number: 32, title: "FlowBio: Sweat Signals", url: "https://www.mishtibroor.com/technical-blogs/32-flowbio-sweat-signals" },
+      { number: 36, title: "The Screenless Revolution: Inside the Google Fitbit Air", url: "https://www.mishtibroor.com/technical-blogs/36-the-screenless-revolution-inside-the-google-fitbit-air" },
+      { number: 37, title: "Micro-ECG, GSR, and AI: Inside the Northwestern-SKKU Bio-Patch", url: "https://www.mishtibroor.com/technical-blogs/37-micro-ecg-gsr-and-ai-inside-the-northwestern-skku-bio-patch" },
+    ],
+  }
+];
+const totalArticles = groups.reduce((count, group) => count + group.articles.length, 0);
 ---
-<BaseLayout title="Writing — Mishti Broor">
-  <section class="page-hero"><div class="container"><div class="eyebrow">Technical writing</div><h1>Understanding emerging neurotechnology by writing about it.</h1><p>Selected writing on neural interfaces, wearable biosensors, neuromodulation, implantable bioelectronics, and translational medical devices.</p></div></section>
-  <section class="section"><div class="container">
-    <div class="grid">
-      <div class="card span-4"><div class="eyebrow">Wearable EEG</div><h3>Brain sensing goes wearable</h3><p>Exploring the engineering tradeoffs behind moving EEG from controlled labs into everyday form factors.</p></div>
-      <div class="card span-4"><div class="eyebrow">Neural interfaces</div><h3>From sensing to intervention</h3><p>Writing on systems that do more than measure — they translate neural or physiological signals into action.</p></div>
-      <div class="card span-4"><div class="eyebrow">Bioelectronics</div><h3>Devices at the body interface</h3><p>Wearables and implantables that combine sensing, materials, electronics, and clinical translation.</p></div>
+<BaseLayout title="Writing — Mishti Broor" description="Mishti Broor's published technical writing about neural interfaces, wearable brain sensing, neuromodulation, bioelectronics, and medical devices.">
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow">Technical writing · Neurotechnology</div>
+      <h1>Understanding emerging neurotechnology by writing about it.</h1>
+      <p>Deep dives into the engineering behind brain–computer interfaces, wearable biosensors, neuromodulation, and translational medical devices. Browse {totalArticles} verified articles from my <a href="https://www.mishtibroor.com/technical-blogs" target="_blank" rel="noopener noreferrer"><strong>Google Sites writing archive ↗</strong></a>.</p>
     </div>
-    <div class="prose"><h2>Editorial note</h2><p>When migrating from your current Google Site, add only your strongest 6–8 pieces here first. Organize the full archive by topic rather than putting every article on the landing page.</p></div>
-  </div></section>
+  </section>
+  {groups.map((group) => (
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>{group.name}</h2>
+          <p>{group.description}</p>
+        </div>
+        <div class="list">
+          {group.articles.map((article) => (
+            <a class="list-row" href={article.url} target="_blank" rel="noopener noreferrer" aria-label={`Read article ${article.number}: ${article.title}`}>
+              <div class="date">Article {String(article.number).padStart(2, '0')}</div>
+              <div><h3>{article.title}</h3></div>
+              <div>Read ↗</div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+  <section class="section">
+    <div class="container">
+      <div class="card span-12">
+        <div class="eyebrow">External publication</div>
+        <h3>Writing at Neurofounders</h3>
+        <p>I also contribute reporting and explainers on neurotechnology, wearable health, and emerging neural interfaces. See my published work through my author profile.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="https://www.neurofounders.co/author/mishti-broor" target="_blank" rel="noopener noreferrer">Read my Neurofounders articles ↗</a>
+          <a class="button" href="https://www.mishtibroor.com/technical-blogs" target="_blank" rel="noopener noreferrer">Original Google Sites archive ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
