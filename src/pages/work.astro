@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const base = '/mishti-portfolio/';
+---
+<BaseLayout title="Work — Mishti Broor" description="Engineering projects and research by Mishti Broor.">
+  <section class="page-hero"><div class="container"><div class="eyebrow">Work / Engineering & research</div><h1>Things I've worked on.</h1><p>Projects, prototypes, and research from my work in biomedical engineering.</p></div></section>
+  <section class="section"><div class="container"><div class="grid">
+    <a class="card image-card span-6" href={`${base}projects/inclusive-eeg-electrodes`}>
+      <img src={`${base}images/eeg-poster-solo.jpeg`} alt="Mishti presenting EEG electrode research"/>
+      <div class="eyebrow">01 / EEG hardware</div><h3>EEG electrode attachments for textured hair</h3><p>CAD, 3D-printed prototypes, and human-subject testing.</p><span class="arrow">↗</span>
+    </a>
+    <a class="card image-card span-6" href={`${base}projects/spinal-cord-model`}>
+      <img src={`${base}images/spinal-cord-expo.jpeg`} alt="Mishti with the in-vitro spinal cord model"/>
+      <div class="eyebrow">02 / Device modeling</div><h3>In-vitro spinal cord model</h3><p>CAD modeling and physical fabrication for fluid-flow studies.</p><span class="arrow">↗</span>
+    </a>
+    <a class="card span-12" href={`${base}research`}><div class="eyebrow">03 / Research</div><h3>Research experience & publications</h3><p>EEG research, clinical immersion, and a published preprint.</p><span class="arrow">↗</span></a>
+  </div></div></section>
+</BaseLayout>
