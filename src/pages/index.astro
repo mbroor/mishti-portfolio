@@ -6,9 +6,9 @@ const img = 'https://raw.githubusercontent.com/mbroor/mishti-portfolio/main/publ
 <BaseLayout title="Mishti Broor — Bioelectronics & Neural Sensing">
   <section class="hero">
     <div class="container">
-      <div class="eyebrow">Bioelectronics · Neural Interfaces · Wearable Sensing</div>
-      <h1>Building better interfaces to biological signals.</h1>
-      <p class="lead">I’m a Biomedical Engineering M.S. student at Northwestern University working across EEG hardware, wearable sensing, human-subject research, and biosignal analysis — with a growing focus on bioelectronics and neural interfaces.</p>
+      <div class="eyebrow">Biomedical Engineering · Northwestern University</div>
+      <h1>Hi, I'm Mishti. <em>I like making things work.</em></h1>
+      <p class="lead">I'm a biomedical engineering master's student at Northwestern. My work has taken me from CAD and 3D-printed EEG electrode attachments to human-subject studies and signal analysis. I'm now working on wearable clinical EEG hardware.</p>
       <div class="hero-actions">
         <a class="button primary" href={`${base}projects`}>View projects →</a>
         <a class="button" href="https://doi.org/10.64898/2026.10.01.755885" target="_blank" rel="noreferrer">EEG preprint ↗</a>
@@ -18,38 +18,43 @@ const img = 'https://raw.githubusercontent.com/mbroor/mishti-portfolio/main/publ
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Selected work</h2>
-        <p>Engineering projects that connect sensing hardware, experimental validation, and real-world human use.</p>
-      </div>
-      <div class="grid">
-        <a class="card feature-card image-card span-7" href={`${base}projects/inclusive-eeg-electrodes`}>
-          <div>
-            <div class="eyebrow">Featured · EEG hardware</div>
-            <h3>Inclusive EEG electrode hardware</h3>
-            <p>Engineered and validated novel EEG electrode attachments for unbraided and cornrowed hair, from CAD and resin 3D printing through a 30-participant study.</p>
-            <div class="meta"><span class="tag">CAD</span><span class="tag">3D printing</span><span class="tag">EEG</span><span class="tag">Human studies</span><span class="tag">Signal quality</span></div>
-          </div>
-          <img src={`${img}eeg-poster-solo.jpeg`} alt="Mishti Broor presenting her EEG electrode research poster" />
-        </a>
-
-        <a class="card feature-card image-card span-5" href={`${base}projects/spinal-cord-model`}>
-          <div>
-            <div class="eyebrow">Medical device design</div>
-            <h3>High-fidelity spinal cord model</h3>
-            <p>Designed an anatomically detailed in-vitro model of the spinal subarachnoid space for cerebrospinal-fluid flow studies.</p>
-            <div class="meta"><span class="tag">Fusion 360</span><span class="tag">MSLA printing</span><span class="tag">Silicone</span><span class="tag">1st place BME</span></div>
-          </div>
-          <img src={`${img}spinal-cord-expo.jpeg`} alt="Mishti Broor presenting the spinal cord model at the UIC Engineering Expo" />
-        </a>
-
-        <a class="card span-4" href={`${base}research`}><h3>Clinical EEG research</h3><p>M.S. thesis work at Northwestern focused on clinical electrophysiology and quantitative EEG.</p><span class="arrow">↗</span></a>
-        <a class="card span-4" href={`${base}bioelectronics`}><h3>Bioelectronics direction</h3><p>Electrodes, analog front ends, wearable sensing, embedded systems, and neural interfaces.</p><span class="arrow">↗</span></a>
-        <a class="card span-4" href={`${base}writing`}><h3>Technical writing</h3><p>Browse 37 linked articles about emerging neurotechnology, wearable biosensing, BCI products, and translational devices.</p><span class="arrow">↗</span></a>
-      </div>
+  <section class="focus-intro" id="selected-work">
+    <div class="container focus-intro-row">
+      <div><div class="eyebrow">01 / Selected work</div><h2>Some things I've made.</h2></div>
+      <p>Scroll to explore two projects that took me from CAD models to physical prototypes and testing.</p>
     </div>
+  </section>
+
+  <section class="focus-stories" aria-label="Selected engineering projects">
+    <div class="focus-stage" data-focus-stage>
+      <a class="focus-story" href="/mishti-portfolio/projects/inclusive-eeg-electrodes">
+        <div class="focus-details">
+          <span class="eyebrow">01 / EEG hardware · UIC</span>
+          <h3>Designing for better scalp contact.</h3>
+          <p>Developing EEG electrode attachments for textured hair meant working through CAD, fabrication, and the practical challenges of testing on people.</p>
+          <div class="focus-cta"><span>CAD · 3D printing · EEG</span><strong>Explore project ↗</strong></div>
+        </div>
+        <div class="focus-photo">
+          <img src="/mishti-portfolio/images/eeg-poster-solo.jpeg" alt="Mishti presenting her EEG electrode attachment research" loading="lazy" />
+          <span>EEG electrode research / UIC</span>
+        </div>
+      </a>
+    </div>
+    <div class="focus-stage" data-focus-stage>
+      <a class="focus-story" href="/mishti-portfolio/projects/spinal-cord-model">
+        <div class="focus-details">
+          <span class="eyebrow">02 / Medical device design · UIC</span>
+          <h3>Making anatomy tangible.</h3>
+          <p>An in-vitro model of the spinal subarachnoid space, developed using CAD and fabrication methods for cerebrospinal-fluid flow studies.</p>
+          <div class="focus-cta"><span>Fusion 360 · MSLA · silicone</span><strong>Explore project ↗</strong></div>
+        </div>
+        <div class="focus-photo">
+          <img src="/mishti-portfolio/images/spinal-cord-expo.jpeg" alt="Mishti at the UIC Engineering Expo with the spinal cord model" loading="lazy" />
+          <span>Spinal cord model / Engineering Expo</span>
+        </div>
+      </a>
+    </div>
+    <p class="focus-end-note">There’s usually more to a project than the final prototype.</p>
   </section>
 
   <section class="section"><div class="container statement"><p>I’m especially interested in the engineering challenge of taking biological signals that are measurable in controlled laboratories and designing <span>hardware that can acquire them reliably in the real world.</span></p></div></section>
@@ -66,3 +71,37 @@ const img = 'https://raw.githubusercontent.com/mbroor/mishti-portfolio/main/publ
     </div>
   </section>
 </BaseLayout>
+
+
+<script>
+  const stages = [...document.querySelectorAll('[data-focus-stage]')];
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let framePending = false;
+
+  function updateFocus() {
+    framePending = false;
+    if (prefersReducedMotion.matches) return;
+    const viewportHeight = window.innerHeight;
+    for (const stage of stages) {
+      const rect = stage.getBoundingClientRect();
+      const entering = viewportHeight * 0.87;
+      const focused = viewportHeight * 0.20;
+      const amount = Math.max(0, Math.min(1, (entering - rect.top) / (entering - focused)));
+      stage.querySelector('.focus-story').style.setProperty('--focus', amount.toFixed(3));
+    }
+  }
+  function scheduleFocus() {
+    if (!framePending) {
+      framePending = true;
+      requestAnimationFrame(updateFocus);
+    }
+  }
+  function handleMotionSetting() {
+    document.body.classList.toggle('focus-motion', !prefersReducedMotion.matches);
+    if (!prefersReducedMotion.matches) scheduleFocus();
+  }
+  handleMotionSetting();
+  window.addEventListener('scroll', scheduleFocus, { passive: true });
+  window.addEventListener('resize', scheduleFocus);
+  prefersReducedMotion.addEventListener('change', handleMotionSetting);
+</script>
