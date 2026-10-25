@@ -17,55 +17,55 @@
 
   const RESPONSES = {
     overview: {
-      text: "Mishti Broor is a biomedical engineering master's student at Northwestern University. Her work focuses on neural sensing and practical device design, especially EEG electrode hardware, CAD prototyping, human-subject testing, and signal analysis. At Northwestern, she is working on wearable clinical EEG hardware.",
+      text: "Mishti Broor is a biomedical engineering master's student at Northwestern University. Her background includes EEG electrode design, CAD and 3D printing, human-subject studies, neural-signal analysis, and medical-device prototyping. She now works on improvements to a wearable clinical EEG system in Northwestern's Kimchi Lab.",
       source: ["About Me", url.about]
     },
     current: {
-      text: "Mishti is a Graduate Student Researcher in the Kimchi Lab at Northwestern University. Her listed work involves improving a wearable clinical EEG system, including device encapsulation, electrode positioning, and reliable scalp contact. The goal is to develop more practical and repeatable hardware for clinical use; this is ongoing work, not a finished commercial product.",
+      text: "Yes. As of October 2026, Mishti is working as a Graduate Student Researcher in the Kimchi Lab at Northwestern University Feinberg School of Medicine. She is helping refine a wearable clinical EEG system, with work involving encapsulation, electrode positioning and scalp contact, and prototype testing for more reliable clinical use. The project is ongoing; she is not claiming a finished commercial device.",
       source: ["Experience", url.experience]
     },
     eeg: {
-      text: "At UIC's Liu-CoMotion Lab, Mishti worked on EEG electrode attachments for Type 4 Afro-textured hair. She used CAD and resin 3D printing to develop prototypes, then helped with EEG setup, human-subject evaluation, and signal analysis. The research addresses a practical problem: conventional EEG electrodes can struggle to maintain reliable scalp contact across some hairstyles.",
+      text: "Mishti's main EEG hardware research was at UIC's Liu-CoMotion Lab, where she designed and resin-3D-printed electrode attachments for Type 4 Afro-textured hairstyles. She also worked on EEG setup, scalp contact and impedance, participant testing, and MATLAB-based signal-quality analysis. The aim was to make reliable EEG acquisition more practical across different hair types and hairstyles. She is now continuing with wearable clinical EEG hardware at Northwestern.",
       source: ["EEG project", url.work + "#eeg"]
     },
     spinal: {
-      text: "Mishti worked on a high-fidelity in-vitro spinal cord model designed for cerebrospinal-fluid flow experiments. Her work included Fusion 360 CAD, mesh refinement, and integrating printed resin with silicone components. The project received first place in Biomedical Engineering and fourth place overall at UIC's 2026 Engineering Expo.",
+      text: "At UIC, Mishti helped develop a high-fidelity in-vitro model of the spinal subarachnoid space for cerebrospinal-fluid flow studies. She used Fusion 360 and mesh tools to work on the anatomy and helped combine MSLA-printed resin and silicone components. The project won first place in Biomedical Engineering and fourth overall at the 2026 UIC Engineering Expo.",
       source: ["Spinal cord project", url.work + "#spinal"]
     },
     bci: {
-      text: "Mishti built a motor-imagery EEG analysis pipeline using a public dataset, MNE-Python, common spatial patterns, and scikit-learn. She evaluated decoding across subjects and tested channel restrictions. It was a software-based signal-analysis project, not a physical BCI device.",
+      text: "Mishti completed a software-based EEG motor-imagery classification project using a 30-subject public PhysioNet dataset, MNE-Python, common spatial patterns (CSP), and scikit-learn. She evaluated decoding at the subject level and checked whether restricting EEG channels affected the results. This was analysis of EEG data, not a physical brain-computer-interface device.",
       source: ["Research & Projects", url.work + "#decoding"]
     },
     research: {
-      text: "Mishti's research experience includes inclusive EEG electrode hardware at UIC and ongoing wearable clinical EEG development at Northwestern. Her work connects device design, scalp-electrode contact, experiments with participants, and signal-quality analysis.",
+      text: "Mishti's research spans two stages. At UIC, she worked on EEG electrodes for Afro-textured hair, involving CAD, fabrication, human studies, and signal analysis. At Northwestern, she is now working on a wearable clinical EEG system. She is interested in how hardware design and human factors affect whether a sensor works reliably in practice.",
       source: ["Research & Projects", url.work]
     },
     education: {
-      text: "Mishti earned a B.S. in Biomedical Engineering from the University of Illinois Chicago in May 2026, graduating magna cum laude. She is currently pursuing a thesis-track M.S. in Biomedical Engineering at Northwestern University, with an expected graduation date in 2028.",
+      text: "Mishti graduated magna cum laude from the University of Illinois Chicago with a B.S. in Biomedical Engineering in May 2026. She is pursuing a thesis-track M.S. in Biomedical Engineering at Northwestern University, with an expected graduation in June 2028.",
       source: ["About Me", url.about]
     },
     experience: {
-      text: "Her professional experience includes Graduate Student Researcher at Northwestern's Kimchi Lab, Undergraduate Researcher in UIC's Liu-CoMotion Lab, an NIH-funded clinical immersion internship in ophthalmology, and technical writing for Neurofounders. Each role involves a different side of engineering—from building devices to learning about clinical needs and explaining technology.",
+      text: "Mishti currently works as a Graduate Student Researcher at Northwestern's Kimchi Lab. Previously, she was an Undergraduate Researcher at UIC's Liu-CoMotion Lab and completed an NIH-funded ophthalmology clinical immersion internship. She also works as a technical writer for Neurofounders, covering neurotechnology and medical devices.",
       source: ["Experience", url.experience]
     },
     clinical: {
-      text: "During an NIH-funded clinical immersion program at UIC, Mishti observed ophthalmology teams and clinical workflows, spoke with clinicians, and documented unmet needs involving devices and usability. This helped connect engineering design decisions with clinical practice.",
+      text: "In the summer of 2025, Mishti participated in an NIH-funded clinical immersion program at UIC focused on ophthalmology. She observed clinical and surgical workflows, spoke with clinicians, and identified unmet medical-device needs. It was an observation and needs-finding experience, not independent clinical practice.",
       source: ["Experience", url.experience]
     },
     skills: {
-      text: "Mishti has hands-on experience with CAD and prototyping (including Fusion 360, SolidWorks, resin printing, and silicone fabrication), EEG acquisition and electrode testing, and biosignal analysis with MATLAB, Python, EEGLAB, and MNE-Python. Her portfolio separates these established skills from technologies she is still learning.",
+      text: "Mishti's documented technical skills include Fusion 360, SolidWorks, CAD, resin/MSLA 3D printing, silicone fabrication, BrainVision/LiveAmp EEG acquisition, electrode placement and impedance testing, MATLAB, Python, EEGLAB, MNE-Python, scikit-learn, and spectral analysis. She is still developing her knowledge of analog biosignal circuitry, PCB design, and embedded systems.",
       source: ["Skills", url.skills]
     },
     bioelectronics: {
-      text: "Bioelectronics is an area Mishti is developing, especially biosignal acquisition, sensors, and wearable device integration. Her demonstrated hardware experience is strongest in EEG electrodes, CAD, fabrication, and testing. Her portfolio does not claim completed analog-front-end or PCB projects.",
+      text: "Bioelectronics is an area Mishti is actively learning. She has hands-on experience at the sensing-device interface—EEG electrodes, prototyping, scalp contact and signal testing—but does not present analog-front-end circuits, PCBs, or embedded designs as completed projects. Her goal is to build stronger skills in the electronics behind wearable sensing systems.",
       source: ["Skills", url.skills]
     },
     publications: {
-      text: "Mishti is a co-first author of the October 2026 bioRxiv preprint 'Design and Test Novel EEG Electrode Attachments for Type 4 Afro-textured Hairstyles.' The work also has an accepted poster scheduled for the Society for Neuroscience Annual Meeting on November 16, 2026. A preprint is not the same as a peer-reviewed journal publication.",
+      text: "Mishti is a co-first author of 'Design and Test Novel EEG Electrode Attachments for Type 4 Afro-textured Hairstyles,' posted as a bioRxiv preprint on October 8, 2026. The work has an accepted poster scheduled for the Society for Neuroscience Annual Meeting on November 16, 2026. Her October résumé also lists a manuscript submitted to PLOS ONE; submission and a preprint do not mean a journal article has been peer reviewed or accepted.",
       source: ["Publications & presentations", url.publications]
     },
     writing: {
-      text: "Mishti writes about neurotechnology and medical devices, including brain-computer interfaces, wearable EEG, neural stimulation, and biosensors. Her Technical Blogs page has 37 linked articles that visitors can search and filter by topic, and she also writes for Neurofounders.",
+      text: "Mishti is a technical writer for Neurofounders and writes about EEG wearables, brain-computer interfaces, neuromodulation, and medical devices. The portfolio's Technical Blogs page links 37 articles with search and topic filters. Her writing focuses on how these technologies work and the tradeoffs between engineering claims and real-world use.",
       source: ["Technical Blogs", url.writing]
     },
     leadership: {
@@ -73,15 +73,15 @@
       source: ["Experience", url.experience]
     },
     awards: {
-      text: "Her in-vitro spinal cord model project received first place in Biomedical Engineering and fourth place overall at the 2026 UIC Engineering Expo. She also graduated magna cum laude from UIC.",
+      text: "The in-vitro spinal cord model project won first place in Biomedical Engineering and fourth place overall at the 2026 UIC Engineering Expo. Mishti also graduated magna cum laude from UIC.",
       source: ["Research & Projects", url.work]
     },
     methodology: {
-      text: "Across her EEG hardware work, Mishti has moved between design and measurement: CAD and resin 3D printing, electrode placement, scalp-contact and impedance testing, EEG data collection, and signal analysis. She is especially interested in how those practical details affect whether a device works reliably for different people.",
+      text: "Mishti's EEG hardware process included CAD modeling, resin 3D printing, electrode-placement preparation, scalp-contact and impedance testing, EEG data acquisition, and signal analysis. Much of her work involves translating a design idea into something that can be tested with people and measuring how it performs.",
       source: ["Research & Projects", url.work]
     },
     participantCount: {
-      text: "Her current résumé describes a focused 17-participant comparison of the novel EEG attachments with a conventional cap. Some older project descriptions mention a broader 30-participant study. Rather than treating those as the same analysis, I would use the linked preprint and résumé for the exact sample definition.",
+      text: "The October 2026 résumé describes a 17-participant comparison between novel electrode attachments and a conventional EEG cap. Older portfolio copy refers to a broader 30-participant study. Those counts should not be treated as interchangeable; the preprint and résumé are better sources for exactly which dataset a result describes.",
       source: ["Research & Projects", url.work]
     },
     contact: {
@@ -92,49 +92,176 @@
       text: "Her résumé covers education at Northwestern and UIC, EEG and medical-device research, clinical immersion, technical writing, projects, publications and presentations, and technical skills.",
       source: ["Résumé", url.resume]
     }
+    ,
+    uic: {
+      text: "From March 2025 to August 2026, Mishti was an Undergraduate Researcher in UIC's Liu-CoMotion Lab. She designed and fabricated electrode attachments for Type 4 hairstyles, helped run EEG studies, assessed scalp contact and impedance, and contributed to signal analysis. She completed her B.S. in Biomedical Engineering at UIC in May 2026.",
+      source: ["Experience", url.experience]
+    },
+    eegResults: {
+      text: "In the 17-participant comparison described in Mishti's October 2026 résumé, the new EEG attachments were reported to reduce electrode disconnections from 20% with the conventional cap to 0.1% while reducing impedance and gel use and maintaining signal quality and comfort. Those figures describe that comparison, not every EEG device or every population.",
+      source: ["Résumé", url.resume]
+    },
+    eegMotivation: {
+      text: "One motivation was that standard EEG electrodes can be difficult to place reliably through dense or Afro-textured hair. Poor contact can affect signal quality and participation in research. Mishti's project tested whether redesigned, 3D-printed attachments could address that practical problem without compromising comfort.",
+      source: ["EEG electrode project", url.work + "#eeg"]
+    },
+    future: {
+      text: "Mishti is interested in the engineering involved in making neural-sensing and other bioelectronic devices useful to patients and clinicians. She is building from experience in EEG hardware, CAD, prototyping, and human testing toward more electronics-focused wearable-device skills. These are professional interests and learning goals, not claims of finished products.",
+      source: ["About Me", url.about]
+    },
+    supervisors: {
+      text: "At UIC, Mishti worked in the Liu-CoMotion Lab led by Dr. Chang Liu; her public research posts also acknowledge Dr. Lucinda Williamson and collaborator Kenneth Ogunniyi. At Northwestern, she is part of Dr. Eyal Kimchi's lab. These are publicly described professional research connections.",
+      source: ["Experience", url.experience]
+    },
+    artwork: {
+      text: "Mishti also has an artwork page showing drawings and paintings from her portfolio. That gallery is separate from her biomedical engineering projects.",
+      source: ["My artwork", "my-artwork.html"]
+    },
+    writingExamples: {
+      text: "Her Neurofounders features include reporting on Cognixion and Apple Vision Pro, Inner Cosmos, Clair Health's wearable concept, BrainScope's EEG biomarker work, and the nerve-connected LUKE Arm home trial. She also publishes shorter technical explainers through her portfolio's Technical Blogs archive.",
+      source: ["Technical Blogs", url.writing]
+    },
+    leadershipDetail: {
+      text: "At Northwestern, Mishti holds two student leadership positions: Junior Academic Chair in the Biomedical Engineering Graduate Student Society (BMEGS) and Event Co-Director in the Graduate International Student Association (G-ISA).",
+      source: ["Experience", url.experience]
+    },
+    designConcepts: {
+      text: "Mishti's public LinkedIn project descriptions include earlier concepts for an ingestible biopsy capsule, a wearable EMG patch for myofascial pain sensing, and an optogenetic smart-contact-lens concept. These were design or blueprint projects; the public descriptions do not establish that finished clinical devices were built or validated.",
+      source: ["LinkedIn projects", "https://www.linkedin.com/in/mishti-broor"]
+    },
+    credentials: {
+      text: "Her public LinkedIn profile lists technical courses and certificates including MATLAB, GitHub Foundations, Python coursework, and CITI training related to human-subjects and clinical-device investigations. For the precise list and issue dates, check her LinkedIn profile.",
+      source: ["LinkedIn", "https://www.linkedin.com/in/mishti-broor"]
+    }
   };
 
-  const privateQuestion = /\b(age|birthday|born|birthplace|relationship|boyfriend|girlfriend|dating|single|married|marriage|partner|husband|wife|children|kids|parents|family|sibling|religion|religious|ethnicity|race|ethnic|nationality|citizenship|immigration|visa|salary|income|net worth|wealth|bank|health|medical history|diagnos|disease|weight|height|address|home address|lives|living|apartment|where does she live|where does mishti live|phone number|personal phone|password|login|account access|private email|personal email|politic|sexual|orientation|hobbies|favorite food|favorite movie|private life|personal life)\b/i;
+  // Professional topics only. Use explicit intents and a small amount of chat context.
+  // Do not use open-ended text generation; every answer is editorially reviewed.
+  const privateQuestion = /\b(age|birthday|birthplace|boyfriend|girlfriend|dating|single|married|marriage|husband|wife|children|kids|parents|family|sibling|religion|religious|ethnicity|race|ethnic|nationality|citizenship|immigration|visa|salary|income|net worth|wealth|bank|health|diagnosis|medical history|disease|weight|height|home address|street address|where she lives|where does she live|apartment|phone number|personal phone|password|login|account access|private email|personal email|politics|political views|sexual|orientation|hobbies|favorite food|favorite movie|private life|personal life|romantic|relationship)\b/i;
 
   function normalize(value) {
-    return value.toLowerCase().replace(/[’']/g, "").replace(/[\u2010-\u2015-]/g, " ").replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
+    return value.toLowerCase().replace(/[’']/g, "").replace(/[\u2010-\u2015-]/g, " ").replace(/[^a-z0-9\s]/g, " ").trim().replace(/\s+/g, " ");
   }
-  function answerFor(question) {
-    const q = normalize(question);
-    if (!q) return { text: "Try asking about Mishti's research, education, engineering projects, experience, skills, publications, or technical writing." };
 
-    if (privateQuestion.test(q) || /\b(where is she right now|current location|her location|social security|passport|home town|hometown|how old)\b/.test(q)) {
-      return { text: "I only answer questions about Mishti's publicly shared professional background. I can't help with personal, sensitive, or private details." };
+  // Normal conversations use varied phrasing: "Does she work?" and
+  // "What about her work on EEG?" should not depend on memorized sentences.
+  const intents = [
+    ["eegResults", /\b(disconnect(?:ion|ions|ed)?|impedance results|signal quality results|outcome|performance|how well|how effective|did it work|what were the results)\b/, /\b(eeg|electrode|hair|cap|contact|her research|it)\b/],
+    ["participantCount", /\b(participants?|subjects?|sample size|how many people|how many volunteers|how many were tested)\b/],
+    ["supervisors", /\b(supervisor|mentor|mentors|advisor|adviser|pi|principal investigator|lab director|collaborator|coauthor|who did she work with)\b/],
+    ["publications", /\b(publication|published|publish|paper|papers|preprint|manuscript|biorxiv|plos|sfn|society for neuroscience|poster|conference|journal|accepted paper|peer review)\b/],
+    ["awards", /\b(awards?|prize|recognition|honors?|won|first place|fourth place|magna cum laude)\b/],
+    ["education", /\b(education|degree|degrees|university|college|school|studied|study at|graduat(?:e|ed|ion|ing)|gpa|academic background|major|northwestern vs uic|masters|master s|bachelor)\b/],
+    ["leadershipDetail", /\b(leadership|student society|student association|bmegs|g isa|academic chair|event co director|event director)\b/],
+    ["clinical", /\b(clinical immersion|ophthalmology|clinician interviews|r25|clinical needs|surgical team|clinical workflow)\b/],
+    ["spinal", /\b(spinal|cerebrospinal|csf|subarachnoid|in vitro|fluid flow|spine|engineering expo)\b/],
+    ["bci", /\b(motor imagery|motor decoding|classifier|classification|csp|scikit|physionet|decoding|machine learning)\b/],
+    ["designConcepts", /\b(ingestible|biopsy|smart contact lens|optogenetic|emg patch|myofascial pain|conceptual device)\b/],
+    ["writingExamples", /\b(examples? of (?:her )?(?:writing|articles)|specific articles|what has she written|which articles|neurofounders pieces|neurofounders features)\b/],
+    ["credentials", /\b(certification|certifications|certificates|credentials|citi|course certificates)\b/],
+    ["artwork", /\b(artwork|paintings?|sketches?|drawings?|art gallery)\b/],
+    ["resume", /\b(resume|cv|curriculum vitae)\b/],
+    ["contact", /\b(contact|reach|email|linkedin|message her|get in touch|hire her|collaborate with her)\b/],
+    ["eegMotivation", /\b(why|motivation|problem|need|inclusion|inclusive|challenge)\b/, /\b(eeg|electrode|hair|scalp|contact|this project|that project|it)\b/],
+    ["current", /\b(kimchi|northwestern lab|clinical eeg|current research|currently researching|current project|current role|current position|current job|working on now|working on at northwestern|working right now|is she working|does she work|is she employed|where does she work|what does she work on|what is she working on|whats she working on|what s she working on|work nowadays|at the moment|these days|what is she doing now|what does she do now|doing right now|doing currently)\b/],
+    ["uic", /\b(uic|liu comotion|liu lab|undergraduate research|before northwestern|previous lab|at chicago)\b/],
+    ["eeg", /\b(eeg|electroencephalograph|electroencephalography|electrodes?|scalp|type 4|afro textured|braids?|cornrows?|hair attachment|inclusive eeg)\b/],
+    ["bioelectronics", /\b(bioelectronics|pcb|printed circuit|analog front end|embedded electronics|embedded systems|electronic circuits|bioinstrumentation|learning now|learn next)\b/],
+    ["methodology", /\b(cad|prototype|prototyping|3d print|fabrication|fusion 360|solidworks|design process|technical process|methods?|validation|test equipment|testing process)\b/],
+    ["skills", /\b(skills?|software|tools?|programming|matlab|python|eeglab|mne|brainvision|solidworks|resin printing|data analysis|signal processing|technical background)\b/],
+    ["writing", /\b(technical blogs?|articles?|writing|writer|writes?|neurofounders|journalism)\b/],
+    ["future", /\b(aims?|goals?|interests?|career plans?|future plans?|hopes? to|what kind of engineer|what motivates her|what is she interested in)\b/],
+    ["experience", /\b(work experience|professional experience|career|jobs?|employment|employer|internship|intern|roles?|past jobs?|where has she worked|where did she work|work history|previous experience|professional background)\b/],
+    ["research", /\b(research|researcher|projects?|research lab|laboratory|labs|research experience|research focus)\b/],
+    ["overview", /\b(who is mishti|about mishti|tell me about mishti|introduce mishti|what does mishti do|what does she do|her background|give me an overview|tell me about her|what is her focus|tell me about yourself)\b/]
+  ];
+
+  let previousTopic = null;
+  let previousFollowup = 0;
+  function result(topic) {
+    if (!Object.prototype.hasOwnProperty.call(RESPONSES, topic)) return null;
+    previousTopic = topic;
+    previousFollowup = 0;
+    return RESPONSES[topic];
+  }
+
+  function answerFor(question) {
+    const q = normalize(String(question || ""));
+    if (!q) return { text: "Ask me about Mishti's current work, EEG research, engineering projects, skills, education, publications, or professional experience." };
+
+    if (privateQuestion.test(q) ||
+        /\b(how old|was she born|date of birth|current location|precise location|her home|where is she right now|where does mishti live|personal details|her hair style|her hairstyle|her private)\b/.test(q)) {
+      previousTopic = null;
+      return { text: "This guide is limited to Mishti's publicly shared professional work. I can't help with personal, sensitive, or private information." };
     }
-    if (/\b(who are you|are you ai|are you chatgpt|how does this chat work|is this real ai|what can i ask|help|what do you know)\b/.test(q)) {
-      return { text: "I'm a portfolio guide with curated answers drawn from Mishti's published professional information—not a general AI assistant. Ask about her education, EEG research, projects, experience, skills, publications, or writing. I won't make up details that aren't in those sources." };
+
+    if (/\b(who are you|are you ai|are you chatgpt|how does (this|the) chat work|is this ai|what can i ask|what do you know|help me use)\b/.test(q)) {
+      return { text: "I'm a curated Q&A guide, not a general-purpose AI model. I answer questions about Mishti's published professional background, including research, engineering projects, experience, education, and writing. I don't invent facts or answer questions about her private life." };
     }
-    if (/\b(how many participants|how many subjects|sample size|number of participants|number of subjects)\b/.test(q)) return RESPONSES.participantCount;
-    if (/\b(how to contact|contact|reach|email|linkedin|message her|get in touch)\b/.test(q)) return RESPONSES.contact;
-    if (/\b(resume|résumé|cv|curriculum vitae)\b/.test(q)) return RESPONSES.resume;
-    if (/\b(publication|publications|published|preprint|paper|papers|biorxiv|plos|sfn|society for neuroscience|poster|conference|manuscript)\b/.test(q)) return RESPONSES.publications;
-    if (/\b(award|awards|prize|recognition|honors|magna cum laude)\b/.test(q)) return RESPONSES.awards;
-    if (/\b(education|educational|degree|degrees|university|universities|college|graduate|graduated|graduation|undergraduate|gpa|studied|study at|school|northwestern vs uic)\b/.test(q) && !/\b(kimchi|current research|working on)\b/.test(q)) return RESPONSES.education;
-    if (/\b(leadership|society|student organization|student association|g isa|bmegs|academic chair|event director)\b/.test(q)) return RESPONSES.leadership;
-    if (/\b(clinical immersion|ophthalmology|hospital workflow|clinician|r25)\b/.test(q)) return RESPONSES.clinical;
-    if (/\b(spinal|cerebrospinal|csf|in vitro|flow model|engineering expo)\b/.test(q)) return RESPONSES.spinal;
-    if (/\b(motor imagery|motor decoding|classifier|classification|csp|machine learning|scikit|physionet|decoding project)\b/.test(q)) return RESPONSES.bci;
-    if (/\b(electrode|afro textured|type 4|scalp|hair|braid|cornrow|inclusive eeg)\b/.test(q)) return RESPONSES.eeg;
-    if (/\b(bioelectronics|analog|pcb|embedded|circuit|hardware learning|learning now|learn next)\b/.test(q)) return RESPONSES.bioelectronics;
-    if (/\b(method|methodology|design process|approach|testing|validation|experiment|prototyp|cad|3d printing|fabrication)\b/.test(q)) return RESPONSES.methodology;
-    if (/\b(skill|skills|software|tools|programming|matlab|python|fusion 360|solidworks|ee glab|eeglab|brainvision|mne)\b/.test(q)) return RESPONSES.skills;
-    if (/\b(blog|blogs|article|articles|writing|writer|neurofounders|write|writes)\b/.test(q)) return RESPONSES.writing;
-    if (/\b(kimchi|northwestern lab|working on now|current research|currently researching|current project|wearable clinical eeg)\b/.test(q)) return RESPONSES.current;
-    if (/\b(work experience|professional experience|jobs|job|roles|career|employment|worked at|internship|intern|employer)\b/.test(q)) return RESPONSES.experience;
-    if (/\b(research|researcher|projects|project|laboratory|labs)\b/.test(q)) return RESPONSES.research;
-    if (/\b(who is mishti|tell me about mishti|introduce mishti|what does mishti do|about mishti|her background|professional background|what is her focus|what does she do)\b/.test(q)) return RESPONSES.overview;
-    return { text: "I don't have a verified answer to that in Mishti's published professional portfolio, so I won't guess. I can help with her education, EEG research, engineering projects, experience, skills, publications, or technical writing.", source: ["About Me", url.about] };
+
+    // Questions about general science or other people are out of scope, even if they contain "EEG".
+    if (/^(what is|define|explain|teach me|tell me what)\s+(eeg|bci|bioelectronics|signal processing|neuroscience|an electrode)\b/.test(q) &&
+        !/\b(mishti|her work|her research|her project)\b/.test(q)) {
+      return { text: "This chat is about Mishti's professional background rather than general science. I can explain how she has worked with EEG hardware or what she has built and tested." };
+    }
+    if (/\b(another person|elon musk|donald trump|stock market|weather|recipe|politics|current news|sports scores|what is the weather)\b/.test(q)) {
+      return { text: "I can only answer questions about Mishti's professional background and portfolio." };
+    }
+
+    // Handle wording about current employment before generic mentions of research.
+    if (/\b(is she (still )?(working|employed)|does she (currently )?work|where does she (currently )?work|where is she working|working (right )?now|currently working|working these days|working at the moment|current job|current position|what does she do (for work|now)|her job|her position|is she employed)\b/.test(q)) return result("current");
+
+    if (/\b(ee[g]? results?|did the electrodes work|how did the electrodes perform|how much did (the|her) (system|electrodes) improve)\b/.test(q)) return result("eegResults");
+
+    // Specific context wins, while casual nouns are also accepted.
+    for (const entry of intents) {
+      const [topic, rule, context] = entry;
+      if (rule.test(q) && (!context || context.test(q))) {
+        return result(topic);
+      }
+    }
+
+    // Lightweight follow-up memory for the current chat only.
+    const followup = /\b(tell me more|more about (it|that|this)|what else|can you elaborate|go into detail|more detail|her role|what did she do there|what did she do|how did she do it|why was that important|why did she do that|how so|and there|what about that|explain that|that project|that research|what about it)\b/.test(q);
+    if (followup && previousTopic) {
+      const related = {
+        eeg: ["methodology","eegResults","eegMotivation"],
+        current: ["methodology","research","future"],
+        uic: ["eeg","eegResults","methodology"],
+        research: ["eeg","current","publications"],
+        spinal: ["awards","methodology"],
+        bci: ["skills","research"],
+        writing: ["writingExamples"],
+        skills: ["bioelectronics","methodology"],
+        experience: ["current","uic","clinical"],
+        publications: ["eeg","research"]
+      };
+      const choices = related[previousTopic];
+      if (choices && choices.length) {
+        const next = choices[Math.min(previousFollowup, choices.length - 1)];
+        const candidate = RESPONSES[next];
+        if (candidate) {
+          // Progress through the related details instead of repeating the same answer.
+          previousTopic = previousTopic;
+          previousFollowup++;
+          return candidate;
+        }
+      }
+      return RESPONSES[previousTopic];
+    }
+
+    // Catch colloquial mentions of "her work" even without a formal research keyword.
+    if (/\b(her work|work she has done|what has she done|what does she work on)\b/.test(q)) return result("research");
+    if (/\b(is she|does she|has she|her|mishti)\b/.test(q) &&
+        /\b(working|worked|built|build|developed|design|engineering|device|career)\b/.test(q)) return result("overview");
+
+    return { text: "I don't have a verified answer to that in Mishti's public professional information, so I don't want to guess. Try asking about her current role, EEG electrode work, UIC projects, skills, publication, or technical writing.", source: ["Explore her work", url.work] };
   }
 
   const prompts = [
-    "What is Mishti working on at Northwestern?",
-    "Tell me about her EEG electrode research.",
-    "Which engineering tools does she use?",
+    "Is she working right now?",
+    "What has Mishti done with EEG?",
+    "What are her technical skills?",
     "What has she published?"
   ];
 
