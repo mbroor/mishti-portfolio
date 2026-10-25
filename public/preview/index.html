@@ -116,38 +116,17 @@
   .mobile-nav nav a{padding:10px 7px;} .mobile-nav nav a:hover{background:#dfe4da;}
   @media(max-width:980px){.main-nav{display:none}.mobile-nav{display:block}.wrap{padding:0 22px}}
 </style>
-</head>
+<link rel="stylesheet" href="theme.css"></head>
 <body>
-  <header>
-    <div class="wrap head">
-      <a class="name" href="index.html">Mishti Broor.</a>
-      <nav class="main-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="#path">About</a><a href="#work">Work</a><a href="https://mbroor.github.io/mishti-portfolio/writing" target="_blank" rel="noopener noreferrer">Writing ↗</a><a href="artwork.html">Artwork</a><a href="https://drive.google.com/file/d/1G_Ssr0d5Gii7ro_BA77Bx_fRt_DBN7I6/view" target="_blank" rel="noopener noreferrer">Résumé ↗</a></nav><details class="mobile-nav"><summary>Menu ☰</summary><nav aria-label="Mobile menu"><a href="index.html">Home</a><a href="#path">About</a><a href="#work">Work</a><a href="https://mbroor.github.io/mishti-portfolio/writing" target="_blank">Writing ↗</a><a href="artwork.html">Artwork</a><a href="https://drive.google.com/file/d/1G_Ssr0d5Gii7ro_BA77Bx_fRt_DBN7I6/view" target="_blank">Résumé ↗</a></nav></details>
-      
-    </div>
-  </header>
+  <header class="topbar"><div class="navwrap"><a class="sitebrand" href="index.html">Mishti Broor<span>.</span></a>
+<nav class="navigation" aria-label="Main navigation"><a href="index.html" aria-current="page">Home</a><a href="about-me.html" >About Me</a><a href="research-projects.html" >Research & Projects</a><a href="experience.html" >Experience</a><a href="technical-blogs.html" >Technical Blogs</a><details class="more"><summary>More⌄</summary><div class="moreitems"><a href="skills.html" >Skills</a><a href="resume.html" >Résumé</a><a href="my-artwork.html" >My artwork</a></div></details></nav>
+<details class="mobile-more"><summary>Menu ☰</summary><nav aria-label="Mobile navigation"><a href="index.html" aria-current="page">Home</a><a href="about-me.html" >About Me</a><a href="research-projects.html" >Research & Projects</a><a href="experience.html" >Experience</a><a href="technical-blogs.html" >Technical Blogs</a><a href="skills.html" >Skills</a><a href="resume.html" >Résumé</a><a href="my-artwork.html" >My artwork</a></nav></details></div></header>
   <main id="top">
-    <section class="hero">
-      <div class="wrap hero-inner">
-        <div>
-          <div class="eyebrow">Biomedical engineering / Northwestern University</div>
-          <h1>Hi, I'm Mishti.<br><em>I like making<br>things work.</em></h1>
-          <p class="lead">My work has taken me from designing EEG electrode attachments in CAD to 3D printing, participant testing, and signal analysis. I'm now working on wearable EEG hardware while learning more about bioelectronics.</p>
-          <div class="hero-links"><a href="#work">See selected work ↗</a><a href="#path">How I got here ↗</a></div>
-        </div>
-        <div class="note-graphic" aria-label="Decorative signal sketch — not experimental data">
-          <div class="top eyebrow"><span>From the notebook</span><span>01/03</span></div>
-          <svg class="scribble" viewBox="0 0 300 170" role="img" aria-label="Conceptual oscillating trace">
-            <defs><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#759183" stroke-width=".55"/></pattern></defs>
-            <rect width="300" height="170" fill="url(#grid)"/>
-            <polyline points="0,85 26,86 38,80 45,95 56,83 67,82 73,110 81,50 88,98 98,84 121,86 133,71 141,93 154,84 168,85 175,105 182,49 189,97 202,84 228,84 237,78 246,90 257,84 300,85" fill="none" stroke="#dce7dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <text x="12" y="17" font-size="9" fill="#c3d3c6" font-family="monospace">CONCEPT / SIGNAL MOTIF</text>
-            <text x="12" y="160" font-size="9" fill="#c3d3c6" font-family="monospace">NOT ACTUAL EEG DATA</text>
-          </svg>
-          <div class="caption eyebrow"><span>Hardware → signals</span><span>Sketch / 2026</span></div>
-        </div>
-      </div>
-    </section>
-    <section class="focus-intro" id="work">
+    <section class="hero"><div class="wrap hero-inner"><div><p class="eyebrow">Biomedical Engineering / Northwestern University</p>
+<h1>Turning neural engineering into <em>devices people can actually use.</em></h1>
+<p class="lead">I'm a biomedical engineering master's student at Northwestern, working on wearable clinical EEG hardware. Earlier work took me through CAD, 3D-printed electrode attachments, human studies and signal analysis.</p>
+<div class="hero-links"><a href="research-projects.html">Research & Projects ↗</a><a href="about-me.html">About me ↗</a></div></div></div></section>
+<section class="focus-intro" id="work">
       <div class="wrap introline">
         <div><div class="eyebrow">01 / Selected work</div><h2>Some things<br>I've made.</h2></div>
         <p class="desc">Scroll to explore two projects that took me from designing on a screen to making and testing physical things.</p>
@@ -161,8 +140,8 @@
             <div class="focus-copy">
               <div class="eyebrow">01 / EEG hardware · UIC</div>
               <h3>Designing for better scalp contact.</h3>
-              <p class="summary">I designed and 3D-printed EEG electrode attachments for textured hair, then helped evaluate them in a 30-participant study.</p>
-              <div class="focus-bottom"><span class="mono">CAD · 3D PRINTING · EEG</span><a href="https://mbroor.github.io/mishti-portfolio/projects/inclusive-eeg-electrodes" target="_blank" rel="noopener noreferrer">Explore project ↗</a></div>
+              <p class="summary">I designed and 3D-printed electrode attachments for Afro-textured hair and helped test their performance in human studies.</p>
+              <div class="focus-bottom"><span class="mono">CAD · 3D PRINTING · EEG</span><a href="research-projects.html#eeg" target="_blank" rel="noopener noreferrer">Explore project ↗</a></div>
             </div>
             <div class="focus-visual"><img src="/mishti-portfolio/images/eeg-poster-solo.jpeg" alt="Mishti presenting her EEG electrode research" loading="lazy"><span class="focus-photo-note">Project / EEG research</span></div>
           </article>
@@ -171,7 +150,7 @@
               <div class="eyebrow">02 / Medical device design · UIC</div>
               <h3>Making anatomy tangible.</h3>
               <p class="summary">I worked on an in-vitro spinal cord model for cerebrospinal-fluid flow studies, using CAD and fabrication techniques.</p>
-              <div class="focus-bottom"><span class="mono">FUSION 360 · MSLA · SILICONE</span><a href="https://mbroor.github.io/mishti-portfolio/projects/spinal-cord-model" target="_blank" rel="noopener noreferrer">Explore project ↗</a></div>
+              <div class="focus-bottom"><span class="mono">FUSION 360 · MSLA · SILICONE</span><a href="research-projects.html#spinal" target="_blank" rel="noopener noreferrer">Explore project ↗</a></div>
             </div>
             <div class="focus-visual"><img src="/mishti-portfolio/images/spinal-cord-expo.jpeg" alt="Mishti showing her spinal cord model at the UIC Engineering Expo" loading="lazy"><span class="focus-photo-note">Project / Engineering Expo</span></div>
           </article>
@@ -181,24 +160,8 @@
       </div>
       <div class="wrap focus-outro">The interesting part is usually figuring out what to try next.</div>
     </section>
-    <section class="section path" id="path">
-      <div class="wrap">
-        <div class="section-top"><div><div class="eyebrow">02 / Research notes</div><h2>A few stops along the way.</h2></div><p class="desc">Click a year to open the details. I wanted this to read more like a record of work than a formal timeline.</p></div>
-        <div class="timeline">
-          <div class="milestone"><button aria-expanded="false" type="button"><span class="eyebrow">2025</span><span>EEG hardware research at UIC</span><span class="plus">+</span></button><div class="detail">My undergraduate work included CAD design, resin printing, electrode preparation, EEG acquisition and analysis, and experiments involving walking and scalp-contact challenges.</div></div>
-          <div class="milestone"><button aria-expanded="false" type="button"><span class="eyebrow">2025</span><span>Clinical immersion</span><span class="plus">+</span></button><div class="detail">I participated in an NIH-funded clinical immersion program and observed clinical workflows and unmet needs in ophthalmology.</div></div>
-          <div class="milestone"><button aria-expanded="false" type="button"><span class="eyebrow">2026</span><span>Graduate research at Northwestern</span><span class="plus">+</span></button><div class="detail">I'm pursuing my master's in biomedical engineering and working on wearable clinical EEG hardware. This section stays broad until there is more public work to share.</div></div>
-        </div>
-      </div>
-    </section>
-    <section class="section notes" id="notes">
-      <div class="wrap notes-layout">
-        <div><div class="eyebrow">03 / The living lab</div><h2>Still figuring things out.</h2><p class="desc" style="margin-top:24px;max-width:530px">I'm interested in bioelectronics and the practical engineering behind wearable sensing. I'm starting to learn more about circuits and embedded systems, but I don't have a finished bioelectronics project to show yet.</p><p style="margin-top:24px;font-size:20px">When I do, it'll go here—with the early attempts, not just the polished result.</p></div>
-        <div class="mini-card"><div class="eyebrow">On the reading table / Writing</div><h3>Ideas worth looking into.</h3><p>I write about EEG wearables, BCIs, and devices that use neural or physiological signals. Writing helps me understand the engineering decisions behind them.</p><div class="writing-links"><a href="https://mbroor.github.io/mishti-portfolio/writing" target="_blank" rel="noreferrer"><span>Browse my technical articles</span><span>↗</span></a><a href="https://doi.org/10.64898/2026.10.01.755885" target="_blank" rel="noreferrer"><span>Read the EEG preprint</span><span>↗</span></a></div></div>
-      </div>
-    </section>
-  </main>
-  <footer><div class="wrap"><div><div class="foot-title">Mishti Broor.</div><div class="foot-note">A portfolio of work, notes, and projects in progress.</div></div><div class="foot-note"><a href="artwork.html">Explore my artwork ↗</a><br>Offline preview · Not published</div></div></footer>
+    <section class="short-end"><div class="wrap"><p class="eyebrow">Beyond the lab</p><h2>Research, writing, and the work behind them.</h2><div class="page-links"><a href="experience.html">Experience ↗</a><a href="technical-blogs.html">Technical Blogs ↗</a><a href="my-artwork.html">Artwork ↗</a></div></div></section></main>
+  <footer class="sitefoot"><div class="frame footrow"><div><strong>Mishti Broor.</strong><p>Biomedical engineering · Neural sensing · Device design</p></div><nav><a href="mailto:mishtibroor2028@u.northwestern.edu">Email</a><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/mishti-broor">LinkedIn ↗</a><a href="my-artwork.html">Artwork</a></nav></div><div class="frame footfine">© 2026 Mishti Broor · Design preview — original homepage remains unchanged</div></footer>
   <div class="demo-bar">SCROLL: SMALL → FULL SIZE → SMALL · SCROLL UP TO REVERSE</div>
   <script>
     const milestones = document.querySelectorAll('.milestone button');
