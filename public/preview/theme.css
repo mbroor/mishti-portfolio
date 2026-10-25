@@ -65,3 +65,53 @@ body{color:#301e20;background:#eee5da;font-family:"Times New Roman",Times,serif}
  .focus-intro h2{font-size:clamp(3rem,10.8vw,4rem)}
  .focus-intro .desc{font-size:1.16rem;line-height:1.5}
 }
+
+/* Living Lab link styling: keep navigation and article links consistent across
+   unvisited, visited, hover, and focus states. Avoid browser default blue/purple. */
+a:link, a:visited { color:inherit; text-decoration:none; }
+.sitebrand:link, .sitebrand:visited,
+.navigation>a:link, .navigation>a:visited,
+.moreitems a:link, .moreitems a:visited,
+.mobile-more nav a:link, .mobile-more nav a:visited {
+  color:#352227;
+  text-decoration:none;
+}
+.navigation a[aria-current="page"],
+.mobile-more nav a[aria-current="page"] {
+  color:#352227;
+  border-bottom:0;
+  font-weight:700;
+}
+.navigation a:hover, .navigation a:focus-visible,
+.moreitems a:hover, .moreitems a:focus-visible,
+.mobile-more nav a:hover, .mobile-more nav a:focus-visible,
+.sitebrand:hover, .sitebrand:focus-visible {
+  color:#70424a;
+  text-decoration:none;
+}
+.article-row a:link, .article-row a:visited,
+.article-row a:hover, .article-row a:focus-visible {
+  color:#3d262b;
+  text-decoration:none;
+}
+.article-row { transition:background-color 180ms ease; }
+.article-row:hover, .article-row:focus-within { background:#e8dacf; }
+.article-row a:hover, .article-row a:focus-visible { color:#3d262b; }
+.page-links a:link, .page-links a:visited,
+.exp-links a:link, .exp-links a:visited,
+.leadership-link:link, .leadership-link:visited,
+.preprint-reference a:link, .preprint-reference a:visited,
+.inline-anchor:link, .inline-anchor:visited,
+.skills-followup a:link, .skills-followup a:visited {
+  text-decoration:none;
+}
+.page-links a, .page-links a:link, .page-links a:visited {
+  border-bottom:0;
+  color:#512c36;
+}
+.sitefoot a:link, .sitefoot a:visited,
+.home-end a:link, .home-end a:visited,
+.hero a:link, .hero a:visited { color:inherit; text-decoration:none; }
+.hero .hero-links a { border-bottom:0; }
+a:focus-visible { outline:2px solid #98596a; outline-offset:4px; }
+@media(prefers-reduced-motion:reduce) { .article-row { transition:none; } }
