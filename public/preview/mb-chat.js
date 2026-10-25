@@ -57,7 +57,7 @@
       source: ["Skills", url.skills]
     },
     bioelectronics: {
-      text: "Bioelectronics is an area Mishti is actively learning. She has hands-on experience at the sensing-device interface—EEG electrodes, prototyping, scalp contact and signal testing—but does not present analog-front-end circuits, PCBs, or embedded designs as completed projects. Her goal is to build stronger skills in the electronics behind wearable sensing systems.",
+      text: "Mishti is actively working on wearable clinical EEG hardware in Northwestern's Kimchi Lab. Her work includes encapsulation design, electrode positioning, prototype modifications, and reliable scalp contact. She's also developing more electronics-focused skills in biosignal acquisition and embedded systems. These ongoing device responsibilities are distinct from analog front-end and PCB projects she hasn't yet claimed as completed.",
       source: ["Skills", url.skills]
     },
     publications: {
