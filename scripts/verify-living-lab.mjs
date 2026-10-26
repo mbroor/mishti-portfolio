@@ -51,12 +51,12 @@ const home=read('index.html');
 assert(home.includes("Work, ideas, <em>and things I've made.</em>"), 'General portfolio homepage not published');
 assert(!home.includes('Turning neural engineering into'), 'Old EEG-specific headline remains');
 assert(!home.includes('Designing for better scalp contact.'), 'Old EEG-specific focus card remains');
-assert((home.match(/data-precision-card(?=\\s)/g)||[]).length===4, 'Expected four scroll-focus portfolio areas');
+assert((home.match(/data-precision-card(?=\s)/g)||[]).length===4, 'Expected four scroll-focus portfolio areas');
 for (const page of ['research-projects.html','experience.html','technical-blogs.html','resume.html','my-artwork.html','about-me.html']) {
  assert(home.includes('href="'+page+'"'), 'Missing homepage section link: '+page);
 }
 const { Script } = await import('node:vm');
-for (const script of [...home.matchAll(/<script(?: [^>]*)?>([\\s\\S]*?)<\\/script>/g)]) {
+for (const script of [...home.matchAll(/<script(?: [^>]*)?>([\s\S]*?)<\/script>/g)]) {
  if (script[1].trim()) new Script(script[1], {filename:'homepage-inline.js'});
 }
 assert(home.includes('my research and engineering projects, the articles I\'ve written, my résumé, and my artwork.'), 'Broad homepage introduction missing');
