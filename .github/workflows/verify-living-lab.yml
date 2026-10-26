@@ -3,7 +3,7 @@ name: Verify Living Lab staging
 on:
   push:
     branches:
-      - living-lab-root-staging-20261025
+      - resume-experience-order-20261026
 
 permissions:
   contents: read
