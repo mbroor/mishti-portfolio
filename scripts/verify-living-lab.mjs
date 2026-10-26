@@ -32,6 +32,12 @@ for(let n=1;n<=22;n++){
   const image = 'images/artwork/page-' + String(n).padStart(2,'0')+'.jpg';
   assert(fs.existsSync(path.join(out,image)), 'Missing artwork: '+image);
 }
+const spinalHtml=read('research-projects.html');
+for(const photo of ["IMG_2712.jpeg","IMG_6758.jpeg","1000009597.jpeg"]) {
+  assert(fs.existsSync(path.join(out,'images',photo)), 'Missing uploaded spinal gallery photo: '+photo);
+  assert(spinalHtml.includes('/images/'+photo), 'Spinal project does not display '+photo);
+}
+assert(spinalHtml.includes('rp-spinal-gallery'), 'Spinal gallery markup missing');
 const home=read('index.html');
 assert(home.includes('Turning neural engineering into'), 'Wrong homepage deployed');
 assert(home.includes('data-precision-card'), 'Scroll interaction missing');
