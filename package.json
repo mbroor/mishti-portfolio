@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "build": "node scripts/build-living-lab.mjs",
+    "preview": "astro preview",
+    "verify-site": "node scripts/verify-living-lab.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",

@@ -1,4 +1,4 @@
-name: Deploy Astro site to Pages
+name: Deploy Living Lab portfolio to Pages
 
 on:
   push:
@@ -32,6 +32,9 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Verify site
+        run: npm run verify-site
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
