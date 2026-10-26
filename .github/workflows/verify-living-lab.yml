@@ -1,0 +1,30 @@
+name: Verify Living Lab staging
+
+on:
+  push:
+    branches:
+      - living-lab-root-staging-20261025
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Check JavaScript syntax
+        run: |
+          node --check scripts/build-living-lab.mjs
+          node --check scripts/verify-living-lab.mjs
+          node --check public/preview/mb-chat.js
+          node --check public/preview/site.js
+      - name: Build Living Lab
+        run: npm run build
+      - name: Validate built pages, assets, and links
+        run: npm run verify-site
