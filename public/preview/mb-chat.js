@@ -157,7 +157,7 @@
     ["supervisors", /\b(supervisor|mentor|mentors|advisor|adviser|pi|principal investigator|lab director|collaborator|coauthor|who did she work with)\b/],
     ["publications", /\b(publication|published|publish|paper|papers|preprint|manuscript|biorxiv|plos|sfn|society for neuroscience|poster|conference|journal|accepted paper|peer review)\b/],
     ["awards", /\b(awards?|prize|recognition|honors?|won|first place|fourth place|magna cum laude)\b/],
-    ["education", /\b(education|degree|degrees|university|college|school|studied|studies|studying|study at|attend|attends|enrolled|student|graduat(?:e|ed|ion|ing)|gpa|academic background|major|northwestern vs uic|masters|master s|bachelor)\b/],
+    ["education", /\b(education|degree|degrees|university|college|school|studied|studies|studying|study at|attend|attends|enrolled|student|graduat(?:e|ed|ion|ing)|gpa|academic background|educational background|major|northwestern vs uic|masters|master s|bachelor)\b/],
     ["leadershipDetail", /\b(leadership|student society|student association|bmegs|g isa|academic chair|event co director|event director)\b/],
     ["clinical", /\b(clinical immersion|ophthalmology|clinician interviews|r25|clinical needs|surgical team|clinical workflow)\b/],
     ["spinal", /\b(spinal|cerebrospinal|csf|subarachnoid|in vitro|fluid flow|spine|engineering expo)\b/],
