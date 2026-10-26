@@ -211,3 +211,13 @@ a:focus-visible { outline:2px solid #98596a; outline-offset:4px; }
 .page-links a.filled-link,.page-links a.filled-link:link,.page-links a.filled-link:visited,.page-links a.filled-link:hover,.page-links a.filled-link:active{display:inline-flex;align-items:center;justify-content:center;background:#45232d!important;color:#fff8f0!important;border:1px solid #45232d!important;border-radius:5px;padding:14px 22px;font-size:18px;line-height:1.25;text-decoration:none!important;min-height:48px}
 .page-links a.filled-link:hover,.page-links a.filled-link:focus-visible{background:#603442!important;color:#fff8f0!important}
 .page-links a:not(.filled-link),.page-links a:not(.filled-link):visited{color:#4b2e37!important}
+
+/* In vitro CNS project gallery. Keep the main portrait and supporting evidence readable. */
+.rp-spinal-gallery .rp-photo a {display:block;line-height:0;text-decoration:none!important;border:0!important;overflow:hidden}
+.rp-spinal-gallery .rp-primary img {width:100%;height:clamp(350px,39vw,480px);object-fit:contain;background:#e7dad1}
+.rp-spinal-gallery .rp-photo-pair .rp-photo img {width:100%;height:205px;object-fit:contain;background:#e7dad1}
+.rp-spinal-gallery .rp-photo a:focus-visible {outline:3px solid #88515e;outline-offset:-3px}
+.rp-spinal-gallery .rp-photo img {transition:filter .2s ease}
+.rp-spinal-gallery .rp-photo a:hover img {filter:brightness(.96)}
+@media(max-width:550px) {.rp-spinal-gallery .rp-primary img{height:340px}.rp-spinal-gallery .rp-photo-pair .rp-photo img{height:165px}}
+@media(prefers-reduced-motion:reduce){.rp-spinal-gallery .rp-photo img{transition:none}}
