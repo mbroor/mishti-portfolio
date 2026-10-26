@@ -115,3 +115,30 @@ a:link, a:visited { color:inherit; text-decoration:none; }
 .hero .hero-links a { border-bottom:0; }
 a:focus-visible { outline:2px solid #98596a; outline-offset:4px; }
 @media(prefers-reduced-motion:reduce) { .article-row { transition:none; } }
+
+/* Research detail refresh */
+.project-pair.three-up{grid-template-columns:repeat(3,minmax(0,1fr))}
+.project-pair.three-up .project-tile img{height:245px;object-fit:cover}
+.project-pair.three-up .tile-body h2{font-size:clamp(28px,2.6vw,39px)}
+.project-detail{scroll-margin-top:90px}
+.project-detail>p{max-width:950px;line-height:1.6}
+.research-highlights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:27px 0 8px}
+.research-highlights>div{background:#f7efe6;border:1px solid #ccb6ac;padding:19px}
+.research-highlights strong{display:block;font:normal clamp(23px,2.7vw,34px)/1.1 "Times New Roman",serif;color:#4d2933;margin-bottom:12px}
+.research-highlights span{display:block;font-size:16px;line-height:1.35;color:#66514f}
+.research-details{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);align-items:start;gap:24px;margin:12px 0 27px}
+.research-details ul{margin:0;padding-left:23px;font-size:18px;line-height:1.55}
+.research-details li{margin:0 0 14px}
+.research-details img{width:100%;object-fit:contain;max-height:390px;background:#f8f0e7;border:1px solid #ccb6ac}
+.project-resources{margin:23px 0}
+.project-resources a,.concept-gallery a{display:inline-block;color:#5d303c;border-bottom:0;text-decoration:none;font:13px/1.5 ui-monospace,monospace}
+.project-footnote{color:#785755;font-size:16px!important;margin:20px 0}
+.concept-gallery{padding:80px 0 20px}
+.concept-gallery h2{font-size:clamp(44px,5.3vw,74px);line-height:1.03;font-weight:400;margin:16px 0 20px}
+.concept-intro{font-size:21px;max-width:790px;margin-bottom:28px}
+.concept-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.concept-grid>div{border:1px solid #ccb6ac;background:#f7efe6;padding:26px}
+.concept-grid h3{font-size:29px;font-weight:400;line-height:1.15;margin:14px 0}
+.concept-grid p{font-size:17px;line-height:1.45}
+@media(max-width:900px){.project-pair.three-up{grid-template-columns:repeat(2,minmax(0,1fr))}.research-details{grid-template-columns:1fr}.research-highlights{grid-template-columns:repeat(2,minmax(0,1fr))}.concept-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.project-pair.three-up{grid-template-columns:1fr}.research-highlights,.concept-grid{grid-template-columns:1fr}}
