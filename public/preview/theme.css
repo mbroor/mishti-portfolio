@@ -301,3 +301,34 @@ a:focus-visible { outline:2px solid #98596a; outline-offset:4px; }
  .precision-track{height:auto!important}
  .home-directory-grid a{transition:none}
 }
+
+
+/* FORGE work in progress and EEG open-source references. */
+.rp-index.rp-index-four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.rp-index.rp-index-four a{font-size:clamp(15px,1.3vw,18px);padding:14px 12px;gap:10px;overflow-wrap:anywhere}
+.rp-resource-links{display:flex;align-items:stretch;gap:10px;flex-wrap:wrap;margin-top:24px}
+.rp-resource-links .rp-link{margin:0;display:inline-flex;align-items:center;justify-content:center;font-size:16px;line-height:1.3;text-align:center}
+.rp-resource-links .rp-link-outline,.rp-resource-links .rp-link-outline:link,.rp-resource-links .rp-link-outline:visited{background:transparent!important;border:1px solid #6f4a51!important;color:#4e2933!important}
+.rp-resource-links .rp-link-outline:hover{background:#e1cec3!important;color:#43242c!important}
+.rp-resource-description{color:#785e5d;line-height:1.5;font-size:15px;margin:14px 0 0}
+.rp-project-ongoing .rp-project-heading{max-width:1010px}
+.rp-status{display:inline-block;vertical-align:middle;color:#f7eee7;background:#754653;border-radius:24px;padding:5px 11px;letter-spacing:.06em;font:11px/1.2 ui-monospace,Menlo,monospace;text-transform:uppercase;margin-left:12px}
+.rp-forge-visual{min-width:0;align-self:stretch;background:#f6eee6;border:1px solid #d1bcb2;border-radius:10px;padding:clamp(18px,2.1vw,30px);display:flex;flex-direction:column;gap:20px}
+.rp-forge-visual-label{font:11px/1.5 ui-monospace,Menlo,monospace;letter-spacing:.09em;color:#896164;text-transform:uppercase;margin:0}
+.rp-forge-pipeline{display:flex;flex-direction:column;gap:0;flex:1;justify-content:center}
+.rp-forge-step{padding:18px 20px;border:1px solid #ccb6ae;border-radius:9px;background:#eee1d7;overflow-wrap:break-word}
+.rp-forge-step>span{display:block;font:11px/1.3 ui-monospace,Menlo,monospace;text-transform:uppercase;letter-spacing:.06em;color:#966a65;margin-bottom:9px}
+.rp-forge-step>strong{display:block;font-size:clamp(22px,2.25vw,31px);font-weight:400;color:#462630;line-height:1.13}
+.rp-forge-step>p{margin:10px 0 0;color:#715858;font-size:15px;line-height:1.35}
+.rp-forge-connector{height:36px;display:grid;place-items:center;color:#8b5a5e;font:22px/1 "Times New Roman",Times,serif}
+.rp-forge-branches{background:#f7f0e9}
+.rp-forge-branches-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.rp-forge-branches-grid>div{border:1px solid #d1bcb1;background:#eee0d6;border-radius:7px;padding:15px 11px;min-width:0}
+.rp-forge-branches-grid strong{display:block;color:#442630;font-size:22px;font-weight:400;margin:9px 0 5px}
+.rp-forge-branches-grid small{display:block;font-size:14px;line-height:1.35;color:#705759}
+.rp-forge-dot-group{display:flex;gap:6px;justify-content:center;align-items:center;min-height:12px}
+.rp-forge-dot-group i{display:block;width:10px;height:10px;border-radius:50%;background:#905e62}
+.rp-forge-visual-foot{font-size:13px;line-height:1.4;color:#816967;margin:0}
+@media(max-width:1070px){.rp-index.rp-index-four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:800px){.rp-index.rp-index-four{grid-template-columns:repeat(2,minmax(0,1fr))}.rp-forge-visual{width:100%}}
+@media(max-width:550px){.rp-index.rp-index-four{grid-template-columns:1fr}.rp-resource-links{flex-direction:column}.rp-resource-links .rp-link{width:100%}.rp-forge-branches-grid{grid-template-columns:1fr 1fr}.rp-status{margin-left:8px}}

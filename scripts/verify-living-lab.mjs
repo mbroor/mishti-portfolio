@@ -32,6 +32,15 @@ for(let n=1;n<=22;n++){
   const image = 'images/artwork/page-' + String(n).padStart(2,'0')+'.jpg';
   assert(fs.existsSync(path.join(out,image)), 'Missing artwork: '+image);
 }
+const researchPage=read('research-projects.html');
+assert(researchPage.includes('id="forge"'), 'FORGE project section not found');
+assert(researchPage.includes('Testing brain sensing in smart glasses and earbuds'), 'FORGE project title missing');
+assert(researchPage.includes('Ongoing'), 'FORGE status is not labeled ongoing');
+assert(researchPage.includes('No final accuracy results yet'), 'FORGE results caveat missing');
+assert(researchPage.includes('No hardware prototype is being built'), 'FORGE hardware scope caveat missing');
+assert(researchPage.includes('href="#forge"'), 'FORGE navigation link missing');
+assert(researchPage.includes('https://github.com/mbroor/Novel-EEG-Electrodes'), 'Novel EEG electrodes source repository link missing');
+assert(researchPage.includes('3D-printable electrode STL files'), 'Missing transparent repository description');
 const spinalHtml=read('research-projects.html');
 for(const photo of ["IMG_2712.jpeg","IMG_6758.jpeg","1000009597.jpeg"]) {
   assert(fs.existsSync(path.join(out,'images',photo)), 'Missing uploaded spinal gallery photo: '+photo);
