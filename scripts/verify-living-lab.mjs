@@ -21,7 +21,7 @@ for(const page of pages) {
   const attrs = [...html.matchAll(/(?:href|src|data-art)="([^"]+)"/g)].map(m=>m[1]);
   for(let value of attrs) {
     if(value.startsWith('#')||/^(?:https?:|mailto:|tel:|data:)/i.test(value))continue;
-    const relative=value.split('?')[0].split('#')[0].replace(/^\//,'');
+    const relative=decodeURIComponent(value.split('?')[0].split('#')[0].replace(/^\//,''));
     if(!relative)continue;
     const dest = path.resolve(out, relative);
     assert(dest.startsWith(out+path.sep) && fs.existsSync(dest),
@@ -38,6 +38,12 @@ for(const photo of ["IMG_2712.jpeg","IMG_6758.jpeg","1000009597.jpeg"]) {
   assert(spinalHtml.includes('/images/'+photo), 'Spinal project does not display '+photo);
 }
 assert(spinalHtml.includes('rp-spinal-gallery'), 'Spinal gallery markup missing');
+const eeg=read('research-projects.html');
+for (const image of ['IMG_2624 2.jpeg','IMG_6901 2.jpeg']) {
+  assert(fs.existsSync(path.join(out,'images',image)), 'Uploaded EEG photo is missing: '+image);
+  assert(eeg.includes('/images/'+encodeURIComponent(image)), 'EEG photo not linked in research page: '+image);
+}
+assert(eeg.includes('rp-eeg-new-gallery'), 'New EEG research gallery not found');
 const home=read('index.html');
 assert(home.includes('Turning neural engineering into'), 'Wrong homepage deployed');
 assert(home.includes('data-precision-card'), 'Scroll interaction missing');

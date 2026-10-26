@@ -221,3 +221,15 @@ a:focus-visible { outline:2px solid #98596a; outline-offset:4px; }
 .rp-spinal-gallery .rp-photo a:hover img {filter:brightness(.96)}
 @media(max-width:550px) {.rp-spinal-gallery .rp-primary img{height:340px}.rp-spinal-gallery .rp-photo-pair .rp-photo img{height:165px}}
 @media(prefers-reduced-motion:reduce){.rp-spinal-gallery .rp-photo img{transition:none}}
+
+/* Additional EEG electrode presentation gallery. */
+.rp-eeg-gallery-heading{padding:6px 2px 2px}
+.rp-eeg-gallery-heading strong{display:block;font-size:22px;font-weight:400;line-height:1.22;color:#432831}
+.rp-eeg-gallery-heading span{display:block;font-size:15px;line-height:1.45;color:#775e5d;margin-top:6px}
+.rp-eeg-new-gallery .rp-photo a{display:block;border:0!important;text-decoration:none!important;line-height:0;overflow:hidden}
+.rp-eeg-new-gallery .rp-photo img{width:100%;height:215px;max-width:100%;object-fit:contain;background:#e7dad1}
+.rp-eeg-new-gallery .rp-photo a:focus-visible{outline:3px solid #895562;outline-offset:-3px}
+.rp-eeg-new-gallery .rp-photo img{transition:filter .18s ease}
+.rp-eeg-new-gallery .rp-photo a:hover img{filter:brightness(.96)}
+@media(max-width:550px){.rp-eeg-new-gallery .rp-photo img{height:168px}}
+@media(prefers-reduced-motion:reduce){.rp-eeg-new-gallery .rp-photo img{transition:none}}
