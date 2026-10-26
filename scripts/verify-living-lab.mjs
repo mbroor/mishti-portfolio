@@ -44,8 +44,13 @@ for (const image of ['IMG_2624 2.jpeg','IMG_6901 2.jpeg']) {
   assert(eeg.includes('/images/'+encodeURIComponent(image)), 'EEG photo not linked in research page: '+image);
 }
 assert(eeg.includes('rp-eeg-new-gallery'), 'New EEG research gallery not found');
+const eegPage=read('research-projects.html');
+assert(eegPage.includes('With my coauthor and Sparky, UIC’s mascot.'), 'Missing UIC mascot caption');
+assert(eegPage.includes('At CAURS with my coauthor and PI'), 'Missing CAURS caption');
 const home=read('index.html');
 assert(home.includes('Turning neural engineering into'), 'Wrong homepage deployed');
+assert(home.includes('research and engineering projects, technical writing, résumé, and artwork.'), 'Homepage portfolio introduction missing');
+assert(home.includes('href="resume.html"'), 'Homepage résumé link missing');
 assert(home.includes('data-precision-card'), 'Scroll interaction missing');
 assert(fs.existsSync(path.join(out,'mb-chat.js')),'Chat JS missing');
 assert(fs.existsSync(path.join(out,'mb-chat.css')),'Chat CSS missing');
