@@ -25,16 +25,16 @@
       source: ["Experience", url.experience]
     },
     eeg: {
-      text: "Mishti's main EEG hardware research was at UIC's Liu-CoMotion Lab, where she designed and resin-3D-printed electrode attachments for Type 4 Afro-textured hairstyles. She also worked on EEG setup, scalp contact and impedance, participant testing, and MATLAB-based signal-quality analysis. The aim was to make reliable EEG acquisition more practical across different hair types and hairstyles. She is now continuing with wearable clinical EEG hardware at Northwestern.",
-      source: ["EEG project", url.work + "#eeg"]
+      text: "At UIC's Liu-CoMotion Lab, Mishti designed novel electrode attachments to make EEG recordings more accessible for Type IV Afro textured hairstyles. Her work included CAD, SLA resin printing, EEG acquisition, impedance testing, multimodal gait studies involving IMUs and instrumented insoles, and signal preprocessing. The poster reports improved scalp contact and fewer electrode disconnections with comparable resting alpha SNR. She now works on wearable clinical EEG hardware at Northwestern.",
+      source: ["EEG electrode project", "research-projects.html#eeg"]
     },
     spinal: {
-      text: "At UIC, Mishti helped develop a high-fidelity in-vitro model of the spinal subarachnoid space for cerebrospinal-fluid flow studies. She used Fusion 360 and mesh tools to work on the anatomy and helped combine MSLA-printed resin and silicone components. The project won first place in Biomedical Engineering and fourth overall at the 2026 UIC Engineering Expo.",
-      source: ["Spinal cord project", url.work + "#spinal"]
+      text: "Mishti worked with a UIC senior design team on a deformable 3D model of the spinal subarachnoid space. They fabricated a clear rigid resin cervical section and flexible silicone section with sacrificial PVA molds. The poster reports a 10 cm hybrid prototype with a sealed interface, plus conservation based CSF and tracer transport modeling and optical transparency analysis. A full 60 cm model and pressure sensor integration were next steps, not completed clinical validation.",
+      source: ["Spinal model project", "research-projects.html#spinal"]
     },
     bci: {
-      text: "Mishti completed a software-based EEG motor-imagery classification project using a 30-subject public PhysioNet dataset, MNE-Python, common spatial patterns (CSP), and scikit-learn. She evaluated decoding at the subject level and checked whether restricting EEG channels affected the results. This was analysis of EEG data, not a physical brain-computer-interface device.",
-      source: ["Research & Projects", url.work + "#decoding"]
+      text: "Mishti independently built an EEG motor imagery classification pipeline using the 64 channel PhysioNet Motor Movement and Imagery dataset, MNE Python, Common Spatial Patterns and scikit learn. A single subject experiment reached 69% mean cross validation accuracy with CSP. Across 30 analyzed subjects, 5 achieved nominally significant decoding in individual binomial tests; the overall mean was 53% and the group test was not significant. A motor channel restriction test in subject 7 retained 96% accuracy, supporting a sensorimotor contribution without proving a unique neural source. The code and figures are on her GitHub repository.",
+      source: ["EEG classification project", "research-projects.html#decoding"]
     },
     research: {
       text: "Mishti's research spans two stages. At UIC, she worked on EEG electrodes for Afro-textured hair, involving CAD, fabrication, human studies, and signal analysis. At Northwestern, she is now working on a wearable clinical EEG system. She is interested in how hardware design and human factors affect whether a sensor works reliably in practice.",
@@ -45,12 +45,12 @@
       source: ["About Me", url.about]
     },
     experience: {
-      text: "Mishti currently works as a Graduate Student Researcher at Northwestern's Kimchi Lab. Previously, she was an Undergraduate Researcher at UIC's Liu-CoMotion Lab and completed an NIH-funded ophthalmology clinical immersion internship. She also works as a technical writer for Neurofounders, covering neurotechnology and medical devices.",
-      source: ["Experience", url.experience]
+      text: "Mishti is currently a Graduate Student Researcher in Northwestern's Kimchi Lab and writes for Neurofounders. Her earlier roles include Research and Scientific Aide in UIC's Liu-CoMotion Lab, NIH funded clinical immersion in ophthalmology, Math Peer Learning Assistant, and General Aide in UIC's Biological Sciences Department. Her experience spans research hardware, data acquisition, clinical needs finding, tutoring and lab operations.",
+      source: ["Experience", "experience.html"]
     },
     clinical: {
-      text: "In the summer of 2025, Mishti participated in an NIH-funded clinical immersion program at UIC focused on ophthalmology. She observed clinical and surgical workflows, spoke with clinicians, and identified unmet medical-device needs. It was an observation and needs-finding experience, not independent clinical practice.",
-      source: ["Experience", url.experience]
+      text: "Mishti's 2025 NIH funded UIC clinical immersion took place in ophthalmology. Her published clinical journal covers dry eye measurements, Schirmer testing and scleral lens problems, and explores how comfort and clinic workflows create design opportunities. This was clinical observation and needs finding, not independent patient care.",
+      source: ["UIC clinical immersion profile", "https://clinicalimmersion.uic.edu/profiles/broor-mishti-2/"]
     },
     skills: {
       text: "Mishti's documented technical skills include Fusion 360, SolidWorks, CAD, resin/MSLA 3D printing, silicone fabrication, BrainVision/LiveAmp EEG acquisition, electrode placement and impedance testing, MATLAB, Python, EEGLAB, MNE-Python, scikit-learn, and spectral analysis. She is still developing her knowledge of analog biosignal circuitry, PCB design, and embedded systems.",
@@ -77,12 +77,12 @@
       source: ["Research & Projects", url.work]
     },
     methodology: {
-      text: "Mishti's EEG hardware process included CAD modeling, resin 3D printing, electrode-placement preparation, scalp-contact and impedance testing, EEG data acquisition, and signal analysis. Much of her work involves translating a design idea into something that can be tested with people and measuring how it performs.",
-      source: ["Research & Projects", url.work]
+      text: "Mishti's EEG work covered CAD, SLA printing, 32 channel EEG acquisition, impedance and electrode contact measurements, participant testing and signal preprocessing. Her senior design work additionally used Fusion 360 negative molds, PVA printing, silicone casting and MATLAB assisted model validation.",
+      source: ["Research and Projects", "research-projects.html"]
     },
     participantCount: {
-      text: "The October 2026 résumé describes a 17-participant comparison between novel electrode attachments and a conventional EEG cap. Older portfolio copy refers to a broader 30-participant study. Those counts should not be treated as interchangeable; the preprint and résumé are better sources for exactly which dataset a result describes.",
-      source: ["Research & Projects", url.work]
+      text: "The Type IV hair EEG poster specifies a participant group and reports several paired statistical comparisons with different degrees of freedom. It is not safe to substitute the 30 subject public PhysioNet motor imagery dataset for the electrode study sample. For the exact analysis sample and exclusions, consult the linked preprint.",
+      source: ["EEG preprint", "https://doi.org/10.64898/2026.10.01.755885"]
     },
     contact: {
       text: "For professional inquiries, Mishti lists her Northwestern email address: mishtibroor2028@u.northwestern.edu. You can also connect through the LinkedIn link in the site's footer.",
@@ -94,12 +94,12 @@
     }
     ,
     uic: {
-      text: "From March 2025 to August 2026, Mishti was an Undergraduate Researcher in UIC's Liu-CoMotion Lab. She designed and fabricated electrode attachments for Type 4 hairstyles, helped run EEG studies, assessed scalp contact and impedance, and contributed to signal analysis. She completed her B.S. in Biomedical Engineering at UIC in May 2026.",
-      source: ["Experience", url.experience]
+      text: "At UIC's Liu-CoMotion Lab, Mishti worked on EEG hardware and neurorehabilitation research from March 2025 through August 2026. She designed and printed electrode attachments for Type IV hairstyles, supported EEG and multimodal gait studies with IMUs and instrumented insoles, and worked on scalp impedance testing and signal analysis.",
+      source: ["Experience", "experience.html"]
     },
     eegResults: {
-      text: "In the 17-participant comparison described in Mishti's October 2026 résumé, the new EEG attachments were reported to reduce electrode disconnections from 20% with the conventional cap to 0.1% while reducing impedance and gel use and maintaining signal quality and comfort. Those figures describe that comparison, not every EEG device or every population.",
-      source: ["Résumé", url.resume]
+      text: "The UIC EEG electrode study poster reports fewer disconnected electrodes, lower impedance and reduced electrode to scalp distance compared with a conventional EEG cap. Resting alpha SNR was comparable. Comfort ratings trended higher, but the reported comfort comparison did not meet the usual p below 0.05 threshold. The study summary also mentions a 62% reduction in disconnections, but that specific percentage is not independently established by the poster and is not quoted as a confirmed result here.",
+      source: ["EEG electrode project", "research-projects.html#eeg"]
     },
     eegMotivation: {
       text: "One motivation was that standard EEG electrodes can be difficult to place reliably through dense or Afro-textured hair. Poor contact can affect signal quality and participation in research. Mishti's project tested whether redesigned, 3D-printed attachments could address that practical problem without compromising comfort.",
@@ -126,13 +126,16 @@
       source: ["Experience", url.experience]
     },
     designConcepts: {
-      text: "Mishti's public LinkedIn project descriptions include earlier concepts for an ingestible biopsy capsule, a wearable EMG patch for myofascial pain sensing, and an optogenetic smart-contact-lens concept. These were design or blueprint projects; the public descriptions do not establish that finished clinical devices were built or validated.",
-      source: ["LinkedIn projects", "https://www.linkedin.com/in/mishti-broor"]
+      text: "Mishti has also explored three early stage biomedical device concepts: a wearable sEMG device for localized muscle signals, a magnetic biopsy capsule for targeted gastrointestinal sampling, and a tear fluid glucose monitoring smart contact lens. These are design concepts, not clinically validated or commercial devices.",
+      source: ["Design explorations", "research-projects.html"]
     },
     credentials: {
       text: "Her public LinkedIn profile lists technical courses and certificates including MATLAB, GitHub Foundations, Python coursework, and CITI training related to human-subjects and clinical-device investigations. For the precise list and issue dates, check her LinkedIn profile.",
       source: ["LinkedIn", "https://www.linkedin.com/in/mishti-broor"]
     }
+    ,
+    teaching: { text: "Mishti worked as a Math Peer Learning Assistant at UIC beginning in September 2025. She facilitated group mathematics learning, provided individualized quantitative support and helped students develop problem solving approaches. Her role's end date has not been confirmed.", source: ["Experience", "experience.html"] },
+    labAide: { text: "From August 2023 to August 2025, Mishti was a General Aide in UIC's Biological Sciences Department. She helped prepare undergraduate teaching laboratories, maintain inventories and support safe lab operations.", source: ["Experience", "experience.html"] }
   };
 
   // Professional topics only. Use explicit intents and a small amount of chat context.
@@ -155,6 +158,8 @@
     ["leadershipDetail", /\b(leadership|student society|student association|bmegs|g isa|academic chair|event co director|event director)\b/],
     ["clinical", /\b(clinical immersion|ophthalmology|clinician interviews|r25|clinical needs|surgical team|clinical workflow)\b/],
     ["spinal", /\b(spinal|cerebrospinal|csf|subarachnoid|in vitro|fluid flow|spine|engineering expo)\b/],
+    ["teaching", /\b(math peer|peer learning assistant|math tutor|tutoring|teaching mathematics|math teaching)\b/],
+    ["labAide", /\b(general aide|biology department|biological sciences|lab preparation|lab inventory)\b/],
     ["bci", /\b(motor imagery|motor decoding|classifier|classification|csp|scikit|physionet|decoding|machine learning)\b/],
     ["designConcepts", /\b(ingestible|biopsy|smart contact lens|optogenetic|emg patch|myofascial pain|conceptual device)\b/],
     ["writingExamples", /\b(examples? of (?:her )?(?:writing|articles)|specific articles|what has she written|which articles|neurofounders pieces|neurofounders features)\b/],
