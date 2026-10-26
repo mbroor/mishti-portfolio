@@ -48,8 +48,18 @@ const eegPage=read('research-projects.html');
 assert(eegPage.includes('With my coauthor and Sparky, UIC’s mascot.'), 'Missing UIC mascot caption');
 assert(eegPage.includes('At CAURS with my coauthor and PI'), 'Missing CAURS caption');
 const home=read('index.html');
-assert(home.includes('Turning neural engineering into'), 'Wrong homepage deployed');
-assert(home.includes('research and engineering projects, technical writing, résumé, and artwork.'), 'Homepage portfolio introduction missing');
+assert(home.includes("Work, ideas, <em>and things I've made.</em>"), 'General portfolio homepage not published');
+assert(!home.includes('Turning neural engineering into'), 'Old EEG-specific headline remains');
+assert(!home.includes('Designing for better scalp contact.'), 'Old EEG-specific focus card remains');
+assert((home.match(/data-precision-card(?=\\s)/g)||[]).length===4, 'Expected four scroll-focus portfolio areas');
+for (const page of ['research-projects.html','experience.html','technical-blogs.html','resume.html','my-artwork.html','about-me.html']) {
+ assert(home.includes('href="'+page+'"'), 'Missing homepage section link: '+page);
+}
+const { Script } = await import('node:vm');
+for (const script of [...home.matchAll(/<script(?: [^>]*)?>([\\s\\S]*?)<\\/script>/g)]) {
+ if (script[1].trim()) new Script(script[1], {filename:'homepage-inline.js'});
+}
+assert(home.includes('my research and engineering projects, the articles I\'ve written, my résumé, and my artwork.'), 'Broad homepage introduction missing');
 assert(home.includes('href="resume.html"'), 'Homepage résumé link missing');
 assert(home.includes('data-precision-card'), 'Scroll interaction missing');
 assert(fs.existsSync(path.join(out,'mb-chat.js')),'Chat JS missing');
