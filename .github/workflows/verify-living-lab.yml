@@ -3,7 +3,7 @@ name: Verify Living Lab staging
 on:
   push:
     branches:
-      - living-lab-root-staging-20261025
+      - chat-answers-refresh-20261025
 
 permissions:
   contents: read

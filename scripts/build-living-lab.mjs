@@ -47,6 +47,7 @@ function migrateText(contents, filename) {
     const canonicalPath = filename === 'index.html' ? '/' : '/' + filename;
     const canonical = '<link rel="canonical" href="' + domain + canonicalPath + '">';
     text = text.replace('</head>', canonical + '</head>');
+    text = text.replaceAll('src="mb-chat.js"', 'src="mb-chat.js?v=20261025-faq-fix"');
   }
   return text;
 }

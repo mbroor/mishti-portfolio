@@ -40,12 +40,15 @@
       text: "Mishti's research spans two stages. At UIC, she worked on EEG electrodes for Afro-textured hair, involving CAD, fabrication, human studies, and signal analysis. At Northwestern, she is now working on a wearable clinical EEG system. She is interested in how hardware design and human factors affect whether a sensor works reliably in practice.",
       source: ["Research & Projects", url.work]
     },
+    educationCurrent: {text: "Mishti is studying at Northwestern University, pursuing a thesis-track M.S. in Biomedical Engineering. She began in fall 2026 and expects to graduate in 2028. Previously, she earned a B.S. in Biomedical Engineering from the University of Illinois Chicago in May 2026.", source: ["Education", url.about]},
+    educationPrevious: {text: "Mishti completed her B.S. in Biomedical Engineering at the University of Illinois Chicago in May 2026, graduating magna cum laude. She now studies at Northwestern University.", source: ["Education", url.about]},
+    experienceDuration: {text: "As of October 2026, Mishti has approximately 1 year and 7 months of documented biomedical engineering research experience, spanning March 2025 to October 2026. She conducted research at UIC's Liu-CoMotion Lab from March 2025 through August 2026 and began research at Northwestern's Kimchi Lab in September 2026. She also has technical writing and clinical immersion experience. Some roles overlap, so this is elapsed time rather than summed full-time employment.", source: ["Experience", url.experience]},
     education: {
       text: "Mishti graduated magna cum laude from the University of Illinois Chicago with a B.S. in Biomedical Engineering in May 2026. She is pursuing a thesis-track M.S. in Biomedical Engineering at Northwestern University, with an expected graduation in June 2028.",
       source: ["About Me", url.about]
     },
     experience: {
-      text: "Mishti is currently a Graduate Student Researcher in Northwestern's Kimchi Lab and writes for Neurofounders. Her earlier roles include Research and Scientific Aide in UIC's Liu-CoMotion Lab, NIH funded clinical immersion in ophthalmology, Math Peer Learning Assistant, and General Aide in UIC's Biological Sciences Department. Her experience spans research hardware, data acquisition, clinical needs finding, tutoring and lab operations.",
+      text: "Mishti is currently a Graduate Student Researcher in Northwestern's Kimchi Lab and writes for Neurofounders. Her earlier roles include Research and Scientific Aide in UIC's Liu-CoMotion Lab, NIH funded clinical immersion in ophthalmology, and Math Peer Learning Assistant. Her experience spans research hardware, data acquisition, clinical needs finding, tutoring and lab operations.",
       source: ["Experience", "experience.html"]
     },
     clinical: {
@@ -154,7 +157,7 @@
     ["supervisors", /\b(supervisor|mentor|mentors|advisor|adviser|pi|principal investigator|lab director|collaborator|coauthor|who did she work with)\b/],
     ["publications", /\b(publication|published|publish|paper|papers|preprint|manuscript|biorxiv|plos|sfn|society for neuroscience|poster|conference|journal|accepted paper|peer review)\b/],
     ["awards", /\b(awards?|prize|recognition|honors?|won|first place|fourth place|magna cum laude)\b/],
-    ["education", /\b(education|degree|degrees|university|college|school|studied|study at|graduat(?:e|ed|ion|ing)|gpa|academic background|major|northwestern vs uic|masters|master s|bachelor)\b/],
+    ["education", /\b(education|degree|degrees|university|college|school|studied|studies|studying|study at|attend|attends|enrolled|student|graduat(?:e|ed|ion|ing)|gpa|academic background|major|northwestern vs uic|masters|master s|bachelor)\b/],
     ["leadershipDetail", /\b(leadership|student society|student association|bmegs|g isa|academic chair|event co director|event director)\b/],
     ["clinical", /\b(clinical immersion|ophthalmology|clinician interviews|r25|clinical needs|surgical team|clinical workflow)\b/],
     ["spinal", /\b(spinal|cerebrospinal|csf|subarachnoid|in vitro|fluid flow|spine|engineering expo)\b/],
@@ -213,6 +216,13 @@
       return { text: "I can only answer questions about Mishti's professional background and portfolio." };
     }
 
+    // Direct routing for everyday education and experience questions.
+    if (/\b(how much experience|how many years of experience|how long has she (worked|been working)|how experienced is she|years of research|research experience does she have)\b/.test(q)) return result("experienceDuration");
+    if (/\b(where|which|what|currently|now)\b/.test(q) && /\b(study|studies|studying|attend|attends|school|university|college|enrolled|student|degree|major)\b/.test(q)) {
+      if (/\b(previously|before|undergrad|undergraduate|uic|illinois chicago|did she study|graduated from|went to)\b/.test(q)) return result("educationPrevious");
+      return result("educationCurrent");
+    }
+    if (/\b(what is her gpa|whats her gpa|grade point average)\b/.test(q)) return {text: "Her public portfolio does not state a verified numerical GPA. It confirms she graduated magna cum laude from UIC.", source:["Education",url.about]};
     // Handle wording about current employment before generic mentions of research.
     if (/\b(is she (still )?(working|employed)|does she (currently )?work|where does she (currently )?work|where is she working|working (right )?now|currently working|working these days|working at the moment|current job|current position|what does she do (for work|now)|her job|her position|is she employed)\b/.test(q)) return result("current");
 
@@ -264,9 +274,9 @@
   }
 
   const prompts = [
-    "Is she working right now?",
+    "Where is she studying?",
+    "How much experience does she have?",
     "What has Mishti done with EEG?",
-    "What are her technical skills?",
     "What has she published?"
   ];
 
@@ -364,6 +374,8 @@
   }
 
   function reset() {
+    previousTopic = null;
+    previousFollowup = 0;
     generation++;
     if (currentAnimation) cancelAnimationFrame(currentAnimation);
     currentAnimation = null;
