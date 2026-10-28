@@ -81,4 +81,9 @@ for(const redirect of ['preview/index.html','preview/my-artwork.html','technical
  assert(fs.existsSync(path.join(out,redirect)), 'Missing legacy redirect '+redirect);
 }
 assert(read('CNAME').trim()==='mishtibroor.com','Domain metadata missing');
+const {execFileSync}=await import('node:child_process');
+execFileSync(process.execPath,['scripts/test-chat-professional.mjs'],{stdio:'inherit'});
+const chatPage=read('mb-chat.js');
+assert(chatPage.includes('mailto:mishtibroor2028@u.northwestern.edu'), 'Missing visitor email draft path');
+assert(chatPage.includes('mb-inquiry-form'), 'Missing professional inquiry form');
 console.log('Living Lab build passed '+assertions+' link, page, art, and domain checks.');
