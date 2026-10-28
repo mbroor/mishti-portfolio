@@ -16,6 +16,13 @@
   };
 
   const RESPONSES = {
+    name: {text:"Her name is Mishti Broor. She is a biomedical engineering master's student at Northwestern University.", source:["About Me",url.about]},
+    educationCurrent: {text:"Mishti is currently pursuing a thesis-track M.S. in Biomedical Engineering at Northwestern University. She began in fall 2026. Her published portfolio lists an expected completion in 2028.",source:["Education",url.about]},
+    educationPrevious: {text:"Mishti earned her B.S. in Biomedical Engineering from the University of Illinois Chicago in May 2026, graduating magna cum laude.",source:["Education",url.about]},
+    duration: {text:"As of October 2026, her published laboratory research roles span March 2025 through the present, about 1 year and 7 months. She conducted EEG research at UIC from March 2025 to August 2026 and began graduate research in Northwestern's Kimchi Lab in September 2026. These are overlapping academic experiences, not a claim of full-time industry employment.",source:["Experience",url.experience]},
+    availability: {text:"Mishti is currently a graduate student and researcher at Northwestern. Her public portfolio does not confirm whether she is actively available for internships, full-time roles, consulting, or collaborations. If you have a specific professional opportunity, you can contact her directly with the role, timing, and your preferred reply address.",source:["Experience",url.experience],inquiry:true},
+    forge: {text:"Mishti is participating in Northwestern FORGE's ongoing team project on brain sensing in smart glasses and earbuds. The project is planning a benchmark comparing full-cap EEG with simulated sparse glasses and ear electrode configurations. It is ongoing: there are no final model results or device prototype to report yet.",source:["FORGE project","research-projects.html#forge"]},
+
     overview: {
       text: "Mishti Broor is a biomedical engineering master's student at Northwestern University. Her background includes EEG electrode design, CAD and 3D printing, human-subject studies, neural-signal analysis, and medical-device prototyping. She now works on improvements to a wearable clinical EEG system in Northwestern's Kimchi Lab.",
       source: ["About Me", url.about]
@@ -45,7 +52,7 @@
       source: ["About Me", url.about]
     },
     experience: {
-      text: "Mishti is currently a Graduate Student Researcher in Northwestern's Kimchi Lab and writes for Neurofounders. Her earlier roles include Research and Scientific Aide in UIC's Liu-CoMotion Lab, NIH funded clinical immersion in ophthalmology, Math Peer Learning Assistant, and General Aide in UIC's Biological Sciences Department. Her experience spans research hardware, data acquisition, clinical needs finding, tutoring and lab operations.",
+      text: "Mishti is currently a Graduate Student Researcher in Northwestern's Kimchi Lab and writes for Neurofounders. Her earlier roles include Research and Scientific Aide in UIC's Liu-CoMotion Lab, NIH funded clinical immersion in ophthalmology, and Math Peer Learning Assistant. Her experience spans research hardware, data acquisition, clinical needs finding, tutoring and lab operations.",
       source: ["Experience", "experience.html"]
     },
     clinical: {
@@ -154,7 +161,7 @@
     ["supervisors", /\b(supervisor|mentor|mentors|advisor|adviser|pi|principal investigator|lab director|collaborator|coauthor|who did she work with)\b/],
     ["publications", /\b(publication|published|publish|paper|papers|preprint|manuscript|biorxiv|plos|sfn|society for neuroscience|poster|conference|journal|accepted paper|peer review)\b/],
     ["awards", /\b(awards?|prize|recognition|honors?|won|first place|fourth place|magna cum laude)\b/],
-    ["education", /\b(education|degree|degrees|university|college|school|studied|study at|graduat(?:e|ed|ion|ing)|gpa|academic background|major|northwestern vs uic|masters|master s|bachelor)\b/],
+    ["education", /\b(education|degree|degrees|university|college|school|studied|study|studies|studying|student|study at|attends|graduat(?:e|ed|ion|ing)|academic background|major|northwestern vs uic|masters|master s|bachelor)\b/],
     ["leadershipDetail", /\b(leadership|student society|student association|bmegs|g isa|academic chair|event co director|event director)\b/],
     ["clinical", /\b(clinical immersion|ophthalmology|clinician interviews|r25|clinical needs|surgical team|clinical workflow)\b/],
     ["spinal", /\b(spinal|cerebrospinal|csf|subarachnoid|in vitro|fluid flow|spine|engineering expo)\b/],
@@ -176,7 +183,7 @@
     ["skills", /\b(skills?|software|tools?|programming|matlab|python|eeglab|mne|brainvision|solidworks|resin printing|data analysis|signal processing|technical background)\b/],
     ["writing", /\b(technical blogs?|articles?|writing|writer|writes?|neurofounders|journalism)\b/],
     ["future", /\b(aims?|goals?|interests?|career plans?|future plans?|hopes? to|what kind of engineer|what motivates her|what is she interested in)\b/],
-    ["experience", /\b(work experience|professional experience|career|jobs?|employment|employer|internship|intern|roles?|past jobs?|where has she worked|where did she work|work history|previous experience|professional background)\b/],
+    ["experience", /\b(experience|work experience|professional experience|career|jobs?|employment|employer|internship|intern|roles?|past jobs?|where has she worked|where did she work|work history|previous experience|professional background)\b/],
     ["research", /\b(research|researcher|projects?|research lab|laboratory|labs|research experience|research focus)\b/],
     ["overview", /\b(who is mishti|about mishti|tell me about mishti|introduce mishti|what does mishti do|what does she do|her background|give me an overview|tell me about her|what is her focus|tell me about yourself)\b/]
   ];
@@ -212,6 +219,17 @@
     if (/\b(another person|elon musk|donald trump|stock market|weather|recipe|politics|current news|sports scores|what is the weather)\b/.test(q)) {
       return { text: "I can only answer questions about Mishti's professional background and portfolio." };
     }
+
+    // Everyday questions and recruiting inquiries take precedence over broad keywords.
+    if (/\b(what is her name|whats her name|what s her name|who is she|who is mishti|full name|her name|name of mishti)\b/.test(q)) return result("name");
+    if (/\b(available|availability|open to|looking for|job opportunities|hiring|hire|recruit|recruiting|internship opportunity|full time role|part time role|offer her|can she work|can she join|start date|when can she start|would she be interested in a role)\b/.test(q)) return result("availability");
+    if (/\b(how much experience|how many years|how long has she worked|how long has she been working|years of experience|years in research|how experienced|research experience does she have|career length)\b/.test(q)) return result("duration");
+    if (/\b(gpa|grade point average)\b/.test(q)) return {text:"Her public portfolio confirms graduation magna cum laude from UIC, but does not list a verified numerical GPA.",source:["About Me",url.about]};
+    if (/\b(where|what|which|is she|does she|currently|now|attend|attends)\b/.test(q) && /\b(study|studying|studies|school|student|university|college|degree|major|program|enrolled|education|masters|master|bachelor|undergrad|graduate)\b/.test(q)) {
+      if (/\b(before|previously|undergrad|bachelor|graduated from|uic|illinois chicago|went to|did she study)\b/.test(q)) return result("educationPrevious");
+      return result("educationCurrent");
+    }
+    if (/\b(forge|smart glasses|earbuds|ear eeg|channel reduction|benchmark)\b/.test(q)) return result("forge");
 
     // Handle wording about current employment before generic mentions of research.
     if (/\b(is she (still )?(working|employed)|does she (currently )?work|where does she (currently )?work|where is she working|working (right )?now|currently working|working these days|working at the moment|current job|current position|what does she do (for work|now)|her job|her position|is she employed)\b/.test(q)) return result("current");
@@ -260,14 +278,18 @@
     if (/\b(is she|does she|has she|her|mishti)\b/.test(q) &&
         /\b(working|worked|built|build|developed|design|engineering|device|career)\b/.test(q)) return result("overview");
 
-    return { text: "I don't have a verified answer to that in Mishti's public professional information, so I don't want to guess. Try asking about her current role, EEG electrode work, UIC projects, skills, publication, or technical writing.", source: ["Explore her work", url.work] };
+    return { text: "I can answer questions about Mishti’s published work, education, projects, skills, and experience, but I don’t have enough verified detail for this one. You can send Mishti your specific question directly.", inquiry:true };
   }
 
+  // Exposed for deterministic automated checks; no data leaves the browser.
+  if (typeof globalThis.__mbChatTestHook === "function") {
+    globalThis.__mbChatTestHook(answerFor);
+  }
   const prompts = [
-    "Is she working right now?",
-    "What has Mishti done with EEG?",
-    "What are her technical skills?",
-    "What has she published?"
+    "What is she studying?",
+    "What is her professional experience?",
+    "Is she available for work?",
+    "What projects has she worked on?"
   ];
 
   const icon = {
@@ -320,6 +342,9 @@
         '<textarea id="mb-chat-input" rows="1" maxlength="300" placeholder="Ask about Mishti’s professional work…" required></textarea>' +
         '<button type="submit" class="mb-send" title="Send message" aria-label="Send message" disabled>' + icon.send + '</button>' +
       '</form>' +
+      '<div class="mb-inquiry" hidden><strong>Ask Mishti directly</strong><p>Have a specific professional question? Prepare an email so she can reply personally.</p>' +
+      '<form class="mb-inquiry-form"><label>Your name <input name="name" maxlength="100" required autocomplete="name"></label><label>Your email <input type="email" name="email" maxlength="150" required autocomplete="email"></label><label>Question <textarea name="question" maxlength="1500" rows="3" required></textarea></label><button type="submit">Open email draft ↗</button></form>' +
+      '<p class="mb-inquiry-note">Your email app opens a draft. Please press Send there. This website does not collect or store submissions.</p></div>' +
       '<p class="mb-disclaimer">Professional topics only · Curated answers · Runs in your browser</p>' +
     '</div>' +
     '<span class="mb-visually-hidden mb-announcement" aria-live="polite" aria-atomic="true"></span>';
@@ -332,6 +357,21 @@
   const input = panel.querySelector("#mb-chat-input");
   const send = panel.querySelector(".mb-send");
   const announcement = panel.querySelector(".mb-announcement");
+  const inquiry = panel.querySelector(".mb-inquiry");
+  const inquiryForm = panel.querySelector(".mb-inquiry-form");
+  let lastUnanswered = "";
+  inquiryForm.addEventListener("submit", event => {
+    event.preventDefault();
+    if (!inquiryForm.reportValidity()) return;
+    const data = new FormData(inquiryForm);
+    const question = String(data.get("question") || "").trim();
+    const name = String(data.get("name") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    if (!question || !name || !email) return;
+    const subject = "Portfolio inquiry: " + question.slice(0,65);
+    const body = "Hello Mishti,\n\n" + question + "\n\nName: " + name + "\nReply to: " + email + "\n\nSent from the portfolio email draft form.";
+    window.location.href = "mailto:mishtibroor2028@u.northwestern.edu?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  });
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   let busy = false;
   let currentAnimation = null;
@@ -364,6 +404,8 @@
   }
 
   function reset() {
+    previousTopic=null;
+    previousFollowup=0;
     generation++;
     if (currentAnimation) cancelAnimationFrame(currentAnimation);
     currentAnimation = null;
@@ -373,6 +415,9 @@
     send.disabled = true;
     history.querySelectorAll(".mb-entry").forEach(node => node.remove());
     welcome.hidden = false;
+    inquiry.hidden = true;
+    inquiryForm.reset();
+    lastUnanswered="";
     announcement.textContent = "Conversation cleared.";
     if (!panel.hidden) input.focus();
   }
@@ -388,6 +433,12 @@
       source.textContent = result.source[0] + " ↗";
       source.setAttribute("aria-label", "Read source: " + result.source[0]);
       target.bubble.append(source);
+    }
+    if (result.inquiry) {
+      inquiry.hidden = false;
+      inquiryForm.elements.question.value = lastUnanswered;
+    } else {
+      inquiry.hidden = true;
     }
     announcement.textContent = "Answer: " + result.text;
     busy = false;
@@ -426,6 +477,7 @@
     send.disabled = true;
     input.disabled = true;
     const result = answerFor(question);
+    lastUnanswered = result.inquiry ? question : "";
     const ticket = ++generation;
     const reply = message("assistant", "");
     reply.bubble.classList.add("mb-pending");
