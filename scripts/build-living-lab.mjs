@@ -9,15 +9,13 @@ const googleBlogRoot = 'https://sites.google.com/view/mishti-broor/technical-blo
 
 const pages = [
   'index.html',
-  'about-me.html',
   'research-projects.html',
   'experience.html',
   'technical-blogs.html',
-  'skills.html',
-  'resume.html',
   'my-artwork.html',
   'ask-about-mishti.html',
 ];
+const legacyPages = {'about-me.html':'/#about','skills.html':'/experience.html#skills','resume.html':'https://drive.google.com/file/d/1G_Ssr0d5Gii7ro_BA77Bx_fRt_DBN7I6/view?usp=drivesdk'};
 const staticFiles = ['site.js', 'theme.css', 'mb-chat.js', 'mb-chat.css'];
 const prettyRedirects = ['about-me', 'research-projects', 'experience', 'technical-blogs', 'skills', 'resume', 'my-artwork', 'ask-about-mishti'];
 
@@ -75,6 +73,12 @@ for (const slug of unique) {
 }
 for (const route of prettyRedirects) {
   write(route + '/index.html', redirectHtml('/' + route + '.html'));
+}
+// Old pages and paths remain usable after consolidation.
+for (const [file, destination] of Object.entries(legacyPages)) {
+  write(file, redirectHtml(destination, 'Portfolio page moved'));
+  write(file.replace('.html','') + '/index.html', redirectHtml(destination, 'Portfolio page moved'));
+  write('preview/' + file, redirectHtml(destination, 'Portfolio page moved'));
 }
 // Preserve old review links without serving outdated or duplicate content.
 for (const page of pages) {

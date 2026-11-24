@@ -3,8 +3,8 @@ import path from 'node:path';
 const out = path.resolve('dist');
 const source = path.resolve('public/preview');
 const pages = [
-'index.html','about-me.html','research-projects.html','experience.html',
-'technical-blogs.html','skills.html','resume.html','my-artwork.html','ask-about-mishti.html'];
+'index.html','research-projects.html','experience.html',
+'technical-blogs.html','my-artwork.html','ask-about-mishti.html'];
 let assertions = 0;
 function assert(cond, explanation) {
   assertions++;
@@ -64,19 +64,36 @@ assert(home.includes('property="og:url" content="https://mishtibroor.com/"'), 'C
 assert(home.includes('og:image:alt'), 'Social image alternative text missing');
 assert(home.includes('src="/images/eeg-poster-solo.jpeg" alt="Mishti Broor presenting'), 'Featured image still shows group');
 assert(fs.existsSync(path.join(out,'images','eeg-poster-solo.jpeg')), 'Social preview photo missing from build');
-assert(home.includes("Work, ideas, <em>and things I've made.</em>"), 'General portfolio homepage not published');
+assert(home.includes('Engineering with curiosity, <em>and people in mind.</em>'), 'Personal portfolio introduction missing');
 assert(!home.includes('Turning neural engineering into'), 'Old EEG-specific headline remains');
 assert(!home.includes('Designing for better scalp contact.'), 'Old EEG-specific focus card remains');
 assert((home.match(/data-precision-card(?=\s)/g)||[]).length===4, 'Expected four scroll-focus portfolio areas');
-for (const page of ['research-projects.html','experience.html','technical-blogs.html','resume.html','my-artwork.html','about-me.html']) {
+for (const page of ['research-projects.html','experience.html','technical-blogs.html','my-artwork.html']) {
  assert(home.includes('href="'+page+'"'), 'Missing homepage section link: '+page);
 }
 const { Script } = await import('node:vm');
 for (const script of [...home.matchAll(/<script(?: [^>]*)?>([\s\S]*?)<\/script>/g)]) {
  if (script[1].trim()) new Script(script[1], {filename:'homepage-inline.js'});
 }
-assert(home.includes('my research and engineering projects, the articles I\'ve written, my résumé, and my artwork.'), 'Broad homepage introduction missing');
-assert(home.includes('href="resume.html"'), 'Homepage résumé link missing');
+assert(home.includes('id="about"') && home.includes('home-education'), 'Merged personal background missing');
+assert(home.includes('research-projects.html#sfn'), 'Homepage SfN feature missing');
+assert(home.includes('https://drive.google.com/file/d/1G_Ssr0d5Gii7ro_BA77Bx_fRt_DBN7I6/view?usp=drivesdk'), 'Direct résumé link missing');
+assert(read('experience.html').includes('id="skills"'), 'Merged technical skills missing');
+assert(read('about-me.html').includes('/#about'), 'About redirect missing');
+assert(read('skills.html').includes('/experience.html#skills'), 'Skills redirect missing');
+assert(read('resume.html').includes('drive.google.com/file/d/'), 'Résumé redirect missing');
+assert(researchPage.includes('id="sfn"') && researchPage.includes('PSTR159.03'), 'SfN presentation record missing');
+for(const photo of ['poster','discussion','poster-audience','team','bci-panel','bci-session','lecture']){
+  const asset='images/sfn/'+photo+'.webp';
+  assert(fs.existsSync(path.join(out,asset)),'Missing SfN photo: '+photo);
+  assert(researchPage.includes('/'+asset),'SfN gallery photo missing: '+photo);
+}
+for(const page of pages){
+  const html=read(page);
+  const nav=html.match(/<nav class="navigation"[^>]*>([\s\S]*?)<\/nav>/)?.[1]||'';
+  assert(nav.includes('>Writing</a>') && nav.includes('>Artwork</a>') && nav.includes('nav-resume'),'Consolidated navigation missing on '+page);
+  assert(!nav.includes('about-me.html') && !nav.includes('skills.html') && !nav.includes('class="more"'),'Redundant navigation on '+page);
+}
 assert(home.includes('data-precision-card'), 'Scroll interaction missing');
 assert(fs.existsSync(path.join(out,'mb-chat.js')),'Chat JS missing');
 assert(fs.existsSync(path.join(out,'mb-chat.css')),'Chat CSS missing');
